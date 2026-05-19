@@ -18,6 +18,7 @@ import { translationAtom } from "@/atoms/translations-atom";
 import { SelectImageScale } from "../settings-tab/select-image-scale";
 import SelectModelDialog from "./select-model-dialog";
 import { ImageFormat } from "@/lib/valid-formats";
+import { Folder, Sparkles } from "lucide-react";
 
 interface IProps {
   selectImageHandler: () => Promise<void>;
@@ -34,6 +35,8 @@ interface IProps {
   };
   setSaveImageAs: React.Dispatch<React.SetStateAction<ImageFormat>>;
   setGpuId: React.Dispatch<React.SetStateAction<string>>;
+  resetImagePaths: () => void;
+  batchFolderPath?: string;
 }
 
 function UpscaylSteps({
@@ -46,6 +49,8 @@ function UpscaylSteps({
   doubleUpscayl,
   setDoubleUpscayl,
   dimensions,
+  resetImagePaths,
+  batchFolderPath,
 }: IProps) {
   const [scale, setScale] = useAtom(scaleAtom);
   const [outputPath, setOutputPath] = useAtom(savedOutputPathAtom);
@@ -110,7 +115,7 @@ function UpscaylSteps({
 
   return (
     <div
-      className={`animate-step-in animate flex h-screen flex-col gap-7 overflow-y-auto overflow-x-hidden p-5`}
+      className={`animate-step-in animate flex h-screen flex-col gap-7 overflow-y-auto overflow-x-hidden p-5 scrollbar-none`}
     >
       {/* BATCH OPTION */}
       <div className="flex flex-row items-center gap-2">
@@ -135,140 +140,113 @@ function UpscaylSteps({
         </p>
       </div>
 
-      {/* STEP 1 */}
-      <div className="animate-step-in">
-        <p className="step-heading">{t("APP.FILE_SELECTION.TITLE")}</p>
-        <button
-          className="btn btn-primary"
-          onClick={!batchMode ? selectImageHandler : selectFolderHandler}
-          data-tooltip-id="tooltip"
-          data-tooltip-content={imagePath}
-        >
-          {batchMode
-            ? t("APP.FILE_SELECTION.BATCH_MODE_TYPE")
-            : t("APP.FILE_SELECTION.SINGLE_MODE_TYPE")}
-        </button>
-      </div>
+
 
       {/* STEP 2 */}
       <div className="animate-step-in group flex flex-col gap-4">
         <div>
-          <p className="step-heading">{t("APP.MODEL_SELECTION.TITLE")}</p>
-          <p className="mb-2 text-sm">{t("APP.MODEL_SELECTION.DESCRIPTION")}</p>
+          <div className="flex items-center gap-2.5 mb-3.5">
+            <div className="flex items-center justify-center rounded-[6px] border border-primary/30 bg-primary/10 px-1.5 py-0.5 text-[11px] font-bold text-primary select-none">
+              01
+            </div>
+            <p className="step-heading !mb-0 leading-none">{t("APP.MODEL_SELECTION.TITLE")}</p>
+          </div>
 
           <SelectModelDialog />
         </div>
 
-        {!batchMode && (
-          <div className="flex items-center gap-1">
-            <input
-              type="checkbox"
-              className="checkbox"
-              checked={doubleUpscayl}
-              onChange={(e) => {
-                if (e.target.checked) {
-                  setDoubleUpscayl(true);
-                } else {
-                  setDoubleUpscayl(false);
-                }
-              }}
-            />
-            <p
-              className="cursor-pointer text-sm"
-              onClick={(e) => {
-                setDoubleUpscayl((prev) => !prev);
-              }}
-            >
-              {t("APP.DOUBLE_UPSCAYL.TITLE")}
-            </p>
-            <button
-              className="badge badge-neutral badge-sm cursor-help"
-              data-tooltip-id="tooltip"
-              data-tooltip-content={t("APP.DOUBLE_UPSCAYL.DESCRIPTION")}
-            >
-              ?
-            </button>
-          </div>
-        )}
+
 
         <SelectImageScale scale={scale} setScale={setScale} hideInfo />
       </div>
 
       {/* STEP 3 */}
-      <div className="animate-step-in">
-        <div className="flex flex-col pb-2">
-          <div className="step-heading flex items-center gap-2">
-            <span className="leading-none">
-              {t("APP.OUTPUT_PATH_SELECTION.TITLE")}
-            </span>
-            {FEATURE_FLAGS.APP_STORE_BUILD && (
-              <button
-                className="badge badge-outline badge-sm cursor-pointer"
-                onClick={() =>
-                  alert(t("APP.OUTPUT_PATH_SELECTION.MAC_APP_STORE_ALERT"))
-                }
-              >
-                ?
-              </button>
-            )}
+      <div className="animate-step-in flex flex-col gap-2.5">
+        {/* STEP 3 HEADER */}
+        <div className="flex items-center gap-2.5 mb-0.5">
+          <div className="flex items-center justify-center rounded-[6px] border border-success/30 bg-success/10 px-1.5 py-0.5 text-[11px] font-bold text-success select-none">
+            03
           </div>
-          {!outputPath && FEATURE_FLAGS.APP_STORE_BUILD && (
-            <div className="text-xs">
-              <span className="rounded-btn bg-base-200 px-2 font-medium uppercase text-base-content/50">
-                {t("APP.OUTPUT_PATH_SELECTION.NOT_SELECTED")}
-              </span>
-            </div>
-          )}
+          <p className="step-heading !mb-0 leading-none">{t("APP.OUTPUT_PATH_SELECTION.TITLE")}</p>
         </div>
-        {!batchMode && !FEATURE_FLAGS.APP_STORE_BUILD && (
-          <p className="mb-2 text-sm">
-            {!batchMode
-              ? t("APP.OUTPUT_PATH_SELECTION.DEFAULT_IMG_PATH")
-              : t("APP.OUTPUT_PATH_SELECTION.DEFAULT_FOLDER_PATH")}
-          </p>
-        )}
+
+        {/* PREMIUM OUTPUT CARD BUTTON */}
         <button
-          className="btn btn-primary"
-          data-tooltip-content={outputPath}
+          className="flex items-center justify-between w-full rounded-[14px] bg-base-200 border border-base-content/10 py-3.5 px-4 text-left transition-all hover:bg-base-300 active:scale-[0.98] cursor-pointer group select-none focus:outline-none"
+          data-tooltip-content={outputPath || undefined}
           data-tooltip-id="tooltip"
           onClick={outputHandler}
         >
-          {t("APP.OUTPUT_PATH_SELECTION.BUTTON_TITLE")}
+          <div className="flex items-center gap-3 min-w-0 flex-1 mr-3">
+            <Folder className="h-4 w-4 text-base-content/40 flex-shrink-0" />
+            <span className="text-sm font-bold text-base-content truncate">
+              {outputPath ? outputPath : t("APP.OUTPUT_PATH_SELECTION.LOCAL_WORKSPACE")}
+            </span>
+          </div>
+          <span
+            className={`badge text-[10px] font-bold px-2.5 py-1 rounded-[6px] select-none whitespace-nowrap flex-shrink-0 h-auto ${
+              outputPath
+                ? "bg-success/10 text-success border border-success/20"
+                : "bg-white/[0.04] text-white/50 border border-white/[0.08]"
+            }`}
+          >
+            {outputPath
+              ? t("APP.OUTPUT_PATH_SELECTION.CUSTOM_BADGE")
+              : t("APP.OUTPUT_PATH_SELECTION.DEFAULT_BADGE")}
+          </span>
         </button>
       </div>
 
       {/* STEP 4 */}
-      <div className="animate-step-in">
-        <p className="step-heading">{t("APP.SCALE_SELECTION.TITLE")}</p>
+      <div className="animate-step-in mt-1">
         {dimensions.width && dimensions.height && (
-          <p className="mb-2 text-sm">
+          <p className="mb-2.5 text-xs text-base-content/60">
             {t("APP.SCALE_SELECTION.FROM_TITLE")}
             <span className="font-bold">
               {dimensions.width}x{dimensions.height}
             </span>
             {t("APP.SCALE_SELECTION.TO_TITLE")}
-            <span className="font-bold">
+            <span className="font-bold text-[#8b5cf6]">
               {upscaylResolution.width}x{upscaylResolution.height}
             </span>
           </p>
         )}
         <button
-          className="btn btn-secondary"
+          className="btn btn-secondary w-full h-12 rounded-xl text-base font-bold transition-all duration-200 active:scale-95 shadow-lg shadow-secondary/20 mt-1 group"
           onClick={
             progress.length > 0 || !outputPath
               ? () =>
-                  toast({
-                    description: t(
-                      "APP.SCALE_SELECTION.NO_OUTPUT_FOLDER_ALERT",
-                    ),
-                  })
+                toast({
+                  description: t(
+                    "APP.SCALE_SELECTION.NO_OUTPUT_FOLDER_ALERT",
+                  ),
+                })
               : upscaylHandler
           }
         >
-          {progress.length > 0
-            ? t("APP.SCALE_SELECTION.IN_PROGRESS_BUTTON_TITLE")
-            : t("APP.SCALE_SELECTION.START_BUTTON_TITLE")}
+          {progress.length > 0 ? (
+            <span className="flex items-center justify-center gap-1.5">
+              {t("APP.SCALE_SELECTION.IN_PROGRESS_BUTTON_TITLE")}
+            </span>
+          ) : (
+            <span className="flex items-center justify-center gap-2">
+              <Sparkles className="h-4 w-4 text-white" />
+              {t("APP.SCALE_SELECTION.START_BUTTON_TITLE")}
+            </span>
+          )}
         </button>
+
+        {(imagePath || (batchMode && batchFolderPath)) && (
+          <button
+            onClick={resetImagePaths}
+            className="btn btn-outline btn-neutral w-full h-11 rounded-xl text-sm font-bold transition-all duration-200 active:scale-95 mt-3 group flex items-center justify-center gap-1.5 cursor-pointer"
+          >
+            {batchMode
+              ? t("APP.SELECT_DIFFERENT_FOLDER" as any) || "Chọn lại thư mục khác"
+              : t("APP.SELECT_DIFFERENT_IMAGE" as any) || "Chọn ảnh khác"}
+            <span className="inline-block transition-transform duration-300 group-hover:rotate-180">🔄</span>
+          </button>
+        )}
       </div>
     </div>
   );

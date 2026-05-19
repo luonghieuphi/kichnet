@@ -9,7 +9,7 @@ export function DonateButton() {
     <div className="flex flex-col gap-2 text-sm font-medium">
       <p>{t("SETTINGS.DONATE.DESCRIPTION")}</p>
       <a
-        href="https://buymeacoffee.com/fossisthefuture"
+        href="https://sharpix.me"
         target="_blank"
         className="btn btn-primary"
       >

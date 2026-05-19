@@ -1,15 +1,19 @@
 {
-  "TITLE": "Upscayl",
-  "INTRO": "Introducing Upscayl Cloud!",
+  "TITLE": "Pixel UP",
+  "OVERVIEW": "Overview",
+  "AI_PARAMETERS": "AI Parameters",
+  "RESOLUTION_PARAMS": "Resolution Parameters",
+  "SCALE_LABEL": "Amplification Coefficient",
+  "INTRO": "Introducing Pixel UP Cloud!",
   "HEADER": {
     "GITHUB_BUTTON_TITLE": "Star us on GitHub 😁",
     "DESCRIPTION": "AI Image Upscaler"
   },
   "FOOTER": {
-    "NEWS_TITLE": "UPSCAYL NEWS",
+    "NEWS_TITLE": "PIXEL UP NEWS",
     "COPYRIGHT": "Copyright ©",
     "TITLE": "By ",
-    "LINK_TITLE": "The Upscayl Team"
+    "LINK_TITLE": "The Pixel UP Team"
   },
   "SETTINGS": {
     "TITLE": "Settings",
@@ -65,29 +69,29 @@
     },
     "OVERWRITE_TOGGLE": {
       "TITLE": "OVERWRITE PREVIOUS UPSCALE",
-      "DESCRIPTION": "If enabled, Upscayl will process the image again instead of loading it directly."
+      "DESCRIPTION": "If enabled, Pixel UP will process the image again instead of loading it directly."
     },
     "RESET_SETTINGS": {
-      "BUTTON_TITLE": "RESET UPSCAYL",
-      "ALERT": "Upscayl has been reset. Please restart the app."
+      "BUTTON_TITLE": "RESET PIXEL UP",
+      "ALERT": "Pixel UP has been reset. Please restart the app."
     },
     "SAVE_OUTPUT_FOLDER": {
       "TITLE": "SAVE OUTPUT FOLDER",
       "DESCRIPTION": "If enabled, the output folder will be remembered between sessions."
     },
     "AUTO_UPDATE": {
-      "TITLE": "AUTO UPDATE UPSCAYL",
+      "TITLE": "AUTO UPDATE PIXEL UP",
       "DESCRIPTION": "If enabled, the application will check for new updates and notify you."
     },
     "ENABLE_CONTRIBUTION": {
-      "TITLE": "HELP IMPROVE UPSCAYL",
-      "DESCRIPTION": "If enabled, Upscayl will collect anonymous usage data to improve the application interface and features."
+      "TITLE": "HELP IMPROVE PIXEL UP",
+      "DESCRIPTION": "If enabled, Pixel UP will collect anonymous usage data to improve the application interface and features."
     },
     "THEME": {
-      "TITLE": "UPSCAYL THEME"
+      "TITLE": "PIXEL UP THEME"
     },
     "LANGUAGE": {
-      "TITLE": "UPSCAYL LANGUAGE"
+      "TITLE": "PIXEL UP LANGUAGE"
     },
     "CUSTOM_TILE_SIZE": {
       "TITLE": "CUSTOM TILE SIZE",
@@ -95,7 +99,7 @@
     },
     "TURN_OFF_NOTIFICATIONS": {
       "TITLE": "TURN OFF NOTIFICATIONS",
-      "DESCRIPTION": "If enabled, Upscayl will not send any system notifications on success or failure."
+      "DESCRIPTION": "If enabled, Pixel UP will not send any system notifications on success or failure."
     },
     "SUPPORT": {
       "TITLE": "Having issues?",
@@ -111,10 +115,23 @@
     }
   },
   "APP": {
-    "TITLE": "Upscayl",
+    "TITLE": "Pixel UP",
+    "ACTIVATION": {
+      "TITLE": "LICENSE ACTIVATION",
+      "DESCRIPTION": "Please enter your activation code to start using the product. If you do not have an activation code, click the link below to get support.",
+      "INPUT_PLACEHOLDER": "Enter activation code (Example: PIXELUP-XXXXXX-XXXXXX)",
+      "BUTTON_TITLE": "Activate Application",
+      "SUPPORT_LINK": "No activation code? Get license at sharpix.me",
+      "SUCCESS": "License activated successfully! Thank you for your support.",
+      "ERROR": "Invalid or expired activation code. Please check again!",
+      "ERROR_DIFFERENT_MACHINE": "This activation code was created for a different computer, it cannot be used on this computer!",
+      "ERROR_EXPIRED": "This activation code has expired! Please contact the admin to renew.",
+      "ERROR_CLOCK_TAMPERED": "Unusual system clock detected. Please set your system time to the correct time!",
+      "MACHINE_ID_LABEL": "Your Machine ID (Send this to us to get your activation code):"
+    },
     "BATCH_MODE": {
-      "TITLE": "Batch Upscayl",
-      "DESCRIPTION": "This will let you Upscayl all files in a folder at once"
+      "TITLE": "Batch Pixel UP",
+      "DESCRIPTION": "This will let you Pixel UP all files in a folder at once"
     },
     "FILE_SELECTION": {
       "TITLE": "Step 1",
@@ -122,7 +139,8 @@
       "SINGLE_MODE_TYPE": "Select Image"
     },
     "MODEL_SELECTION": {
-      "TITLE": "Step 2",
+      "TITLE": "Neural Core Engine",
+      "LABEL": "AI Model",
       "DESCRIPTION": "Select AI Model",
       "IMPORTED_CUSTOM_MODELS": "Imported Custom Models",
       "BEFORE": "Before",
@@ -130,11 +148,11 @@
       "ZOOM": "Zoom",
       "MODELS": {
         "upscayl-standard-4x": {
-          "NAME": "Upscayl Standard",
+          "NAME": "Pixel UP Standard",
           "DESCRIPTION": "Suitable for most images."
         },
         "upscayl-lite-4x": {
-          "NAME": "Upscayl Lite",
+          "NAME": "Pixel UP Lite",
           "DESCRIPTION": "Suitable for most images. High-speed upscaling with minimal quality loss."
         },
         "remacri-4x": {
@@ -160,65 +178,72 @@
       }
     },
     "DOUBLE_UPSCAYL": {
-      "TITLE": "Double Upscayl",
-      "DESCRIPTION": "Enable this option to run upscayl twice on an image. Note that this may cause a significant increase in processing time and possibly performance issues for scales greater than 4X."
+      "TITLE": "Double Pixel UP",
+      "DESCRIPTION": "Enable this option to run Pixel UP twice on an image. Note that this may cause a significant increase in processing time and possibly performance issues for scales greater than 4X."
     },
     "OUTPUT_PATH_SELECTION": {
-      "TITLE": "Step 3",
-      "MAC_APP_STORE_ALERT": "Due to MacOS App Store security restrictions, Upscayl requires you to select an output folder everytime you start it.\n\nTo avoid this, you can permanently save a default output folder in the Upscayl 'Settings' tab.",
+      "TITLE": "Data Routing",
+      "LOCAL_WORKSPACE": "Local Workspace",
+      "DEFAULT_BADGE": "Default",
+      "CUSTOM_BADGE": "Custom",
+      "MAC_APP_STORE_ALERT": "Due to MacOS App Store security restrictions, Pixel UP requires you to select an output folder everytime you start it.\n\nTo avoid this, you can permanently save a default output folder in the Pixel UP 'Settings' tab.",
       "NOT_SELECTED": "Not Selected",
       "DEFAULT_IMG_PATH": "Defaults to Image's path",
       "DEFAULT_FOLDER_PATH": "Defaults to  Folder's path",
       "BUTTON_TITLE": "Set Output Folder"
     },
     "SCALE_SELECTION": {
-      "TITLE": "Step 4",
-      "FROM_TITLE": "Upscayl from ",
+      "TITLE": "",
+      "FROM_TITLE": "Pixel UP from ",
       "TO_TITLE": " to ",
       "NO_OUTPUT_FOLDER_ALERT": "Please select an output folder first",
-      "START_BUTTON_TITLE": "Upscayl 🚀",
-      "IN_PROGRESS_BUTTON_TITLE": "Upscayling ⏳"
+      "START_BUTTON_TITLE": "Initialize AI Process",
+      "IN_PROGRESS_BUTTON_TITLE": "Initializing process... ⏳"
     },
     "MORE_OPTIONS_DRAWER": {
       "RESET_BUTTON_TITLE": "Reset Image",
       "LENS_VIEW_TITLE": "Lens View",
       "SLIDER_VIEW_TITLE": "Slider View",
       "ZOOM_AMOUNT_TITLE": "Zoom Amount",
-      "TOTAL_UPSCAYLS": "Total Upscayls",
-      "TOTAL_BATCH_UPSCAYLS": "Total Batch Upscayls",
-      "TOTAL_IMAGE_UPSCAYLS": "Total Image Upscayls",
-      "TOTAL_DOUBLE_UPSCAYLS": "Total Double Upscayls",
-      "AVERAGE_UPSCAYL_TIME": "Average Upscayl Time",
-      "LAST_UPSCAYL_DURATION": "Last Upscayl Duration",
+      "TOTAL_UPSCAYLS": "Total Pixel UPings",
+      "TOTAL_BATCH_UPSCAYLS": "Total Batch Pixel UPings",
+      "TOTAL_IMAGE_UPSCAYLS": "Total Image Pixel UPings",
+      "TOTAL_DOUBLE_UPSCAYLS": "Total Double Pixel UPings",
+      "AVERAGE_UPSCAYL_TIME": "Average Pixel UPing Time",
+      "LAST_UPSCAYL_DURATION": "Last Pixel UPing Duration",
       "LAST_USED_AT": "Last Used At"
     },
     "PROGRESS_BAR": {
-      "BATCH_UPSCAYL_IN_PROGRESS_TITLE": "Batch Upscayl In Progress:",
-      "IN_PROGRESS_TITLE": "Doing the Upscayl magic...",
+      "BATCH_UPSCAYL_IN_PROGRESS_TITLE": "Batch Pixel UP In Progress:",
+      "IN_PROGRESS_TITLE": "Doing the Pixel UP magic...",
       "STOP_BUTTON_TITLE": "STOP"
     },
     "RESET_BUTTON_TITLE": "Reset",
+    "SELECT_DIFFERENT_FOLDER": "Select another folder",
+    "SELECT_DIFFERENT_IMAGE": "Select another image",
     "RIGHT_PANE_INFO": {
       "SELECT_FOLDER": "Select a Folder",
       "SELECT_IMAGE": "Select an Image",
       "SELECT_FOLDER_DESCRIPTION": "Make sure that the folder doesn't contain anything except PNG, JPG, JPEG & WEBP images.",
       "SELECT_IMAGES_DESCRIPTION": "Select or drag and drop a PNG, JPG, JPEG or WEBP image.",
-      "PASTE_IMAGE_DESCRIPTION": "Hit Ctrl+V or ⌘+V to Paste image from Clipboard"
+      "PASTE_IMAGE_DESCRIPTION": "Hit Ctrl+V or ⌘+V to Paste image from Clipboard",
+      "INPUT_DATA_SETUP": "Input Data Setup",
+      "INPUT_DATA_DESCRIPTION": "Drag and drop an image file into this area or click to extract from local memory"
     },
     "PROGRESS": {
       "PROCESSING_TITLE": "Processing the image...",
       "SCALING_CONVERTING_TITLE": "Scaling and converting image...",
       "WAIT_TITLE": "Hold on...",
-      "SUCCESS_TITLE": "Upscayl Successful!",
+      "SUCCESS_TITLE": "Pixel UP Successful!",
       "BATCH": {
         "SELECTED_FOLDER_TITLE": "Selected folder:",
         "DONE_TITLE": "All done!",
-        "OPEN_UPSCAYLED_FOLDER_TITLE": "Open Upscayled Folder"
+        "OPEN_UPSCAYLED_FOLDER_TITLE": "Open Pixel UPed Folder"
       }
     },
     "SLIDER": {
       "ORIGINAL_TITLE": "Original",
-      "UPSCAYLED_TITLE": "Upscayled"
+      "UPSCAYLED_TITLE": "Pixel UPed"
     },
     "DIALOG_BOX": {
       "CLOSE": "Close"
@@ -243,7 +268,7 @@
     },
     "EXCEPTION_ERROR": {
       "TITLE": "Exception Error",
-      "DESCRIPTION": "Upscayl encountered an error. Possibly, the upscayl binary failed to execute the commands properly. Try checking the logs to see if you get any information. You can post an issue on Upscayl's GitHub repository for more help."
+      "DESCRIPTION": "Pixel UP encountered an error. Possibly, the upscayl binary failed to execute the commands properly. Try checking the logs to see if you get any information. You can post an issue on Pixel UP's GitHub repository for more help."
     },
     "GENERIC_ERROR": {
       "TITLE": "Error"
@@ -281,12 +306,12 @@
   "UPSCAYL_CLOUD": {
     "COMING_SOON": "Coming soon!",
     "CATCHY_PHRASE_1": "No more errors, hardware issues, quality compromises or long loading times!",
-    "CATCHY_PHRASE_2": "🌐 Upscayl anywhere, anytime, any device\n☁️ No Graphics Card or hardware required\n👩 Face Enhancement\n🦋 10+ models to choose from\n🏎 5x faster than Upscayl Desktop\n🎞 Video Upscaling\n💰 Commercial Usage\n😴 Upscayl while you sleep",
+    "CATCHY_PHRASE_2": "🌐 Pixel UP anywhere, anytime, any device\n☁️ No Graphics Card or hardware required\n👩 Face Enhancement\n🦋 10+ models to choose from\n🏎 5x faster than Pixel UP Desktop\n🎞 Video Upscaling\n💰 Commercial Usage\n😴 Pixel UP while you sleep",
     "ALREADY_REGISTERED_ALERT": "Thank you {name}! It seems that your email has already been registered :D If that's not the case, please try again.",
-    "ADD_SUCCESS": "Thank you for joining the waitlist! We will notify you when Upscayl Cloud is ready for you.",
+    "ADD_SUCCESS": "Thank you for joining the waitlist! We will notify you when Pixel UP Cloud is ready for you.",
     "INCORRECT_FIELDS_ALERT": "Please fill in all the fields correctly.",
     "JOIN_WAITLIST": "Join the waitlist",
-    "DONT_SHOW_AGAIN": "DON'T SHOW AGAIN"
+    "DONT_SHOW_AGAIN": "DONT SHOW AGAIN"
   },
   "ONBOARDING_DIALOG": {
     "NEXT_BUTTON_TITLE": "Next",
@@ -294,7 +319,7 @@
     "GET_STARTED_BUTTON_TITLE": "Get Started",
     "SETTINGS_NOTE": "You can always change these settings later.",
     "STEP_1": {
-      "TITLE": "Welcome to Upscayl 🎉",
+      "TITLE": "Welcome to Pixel UP 🎉",
       "DESCRIPTION": "Let's get you started with a few quick steps."
     },
     "STEP_2": {
@@ -302,12 +327,12 @@
       "DESCRIPTION": "Configure your initial settings."
     },
     "STEP_3": {
-      "TITLE": "How do I use Upscayl? 🚀",
+      "TITLE": "How do I use Pixel UP? 🚀",
       "DESCRIPTION": "Watch this short video to learn about the new features."
     },
     "STEP_4": {
       "TITLE": "You're All Set! 🎉",
-      "DESCRIPTION": "You're ready to start upscaling images with Upscayl!"
+      "DESCRIPTION": "You're ready to start upscaling images with Pixel UP!"
     }
   }
 }

@@ -1,15 +1,19 @@
 {
-  "TITLE": "Upscayl",
-  "INTRO": "Giới thiệu Upscayl Cloud!",
+  "TITLE": "Pixel UP",
+  "OVERVIEW": "Tổng quan",
+  "AI_PARAMETERS": "Tham số AI",
+  "RESOLUTION_PARAMS": "Tham số độ phân giải",
+  "SCALE_LABEL": "Hệ số khuếch đại",
+  "INTRO": "Giới thiệu Pixel UP Cloud!",
   "HEADER": {
     "GITHUB_BUTTON_TITLE": "Star chúng tôi trên GitHub 😁",
     "DESCRIPTION": "Tăng cường hình ảnh AI"
   },
   "FOOTER": {
-    "NEWS_TITLE": "TIN TỨC UPSCAYL",
+    "NEWS_TITLE": "TIN TỨC PIXEL UP",
     "COPYRIGHT": "Bản quyền ©",
     "TITLE": "Bởi ",
-    "LINK_TITLE": "Đội ngũ Upscayl"
+    "LINK_TITLE": "Đội ngũ Pixel UP"
   },
   "SETTINGS": {
     "TITLE": "Cài đặt",
@@ -35,7 +39,7 @@
     },
     "GPU_ID_INPUT": {
       "TITLE": "ID GPU",
-      "DESCRIPTION": "Vui lòng đọc Tài liệu Upscayl để biết thêm thông tin.",
+      "DESCRIPTION": "Vui lòng đọc Tài liệu Pixel UP để biết thêm thông tin.",
       "ADDITIONAL_DESCRIPTION": "Kích hoạt chế độ hiệu suất trên Windows để có kết quả tốt hơn."
     },
     "IMAGE_FORMAT": {
@@ -47,7 +51,7 @@
     "COPY_METADATA": {
       "TITLE": "SAO CHÉP METADATA ẢNH",
       "DESCRIPTION": "Giữ metadata gốc của ảnh (EXIF) trong ảnh đã được nâng cao.",
-      "SUGGEST_JPG_TITLE": "Đề Xuất Thay Đổi Định Dạng", 
+      "SUGGEST_JPG_TITLE": "Đề Xuất Thay Đổi Định Dạng",
       "SUGGEST_JPG_DESCRIPTION": "Để có khả năng tương thích metadata tốt hơn trên các hệ thống khác nhau, chúng tôi khuyên bạn nên sử dụng định dạng JPG. Bạn có muốn thay đổi không?",
       "CHANGE_TO_JPG": "Chuyển sang JPG",
       "KEEP_CURRENT_FORMAT": "Giữ {format}"
@@ -65,29 +69,29 @@
     },
     "OVERWRITE_TOGGLE": {
       "TITLE": "GHI ĐÈ UPSCALE TRƯỚC ĐÓ",
-      "DESCRIPTION": "Nếu được kích hoạt, Upscayl sẽ xử lý lại hình ảnh thay vì tải nó trực tiếp."
+      "DESCRIPTION": "Nếu được kích hoạt, Pixel UP sẽ xử lý lại hình ảnh thay vì tải nó trực tiếp."
     },
     "RESET_SETTINGS": {
-      "BUTTON_TITLE": "ĐẶT LẠI UPSCAYL",
-      "ALERT": "Upscayl đã được đặt lại. Vui lòng khởi động lại ứng dụng."
+      "BUTTON_TITLE": "ĐẶT LẠI PIXEL UP",
+      "ALERT": "Pixel UP đã được đặt lại. Vui lòng khởi động lại ứng dụng."
     },
     "SAVE_OUTPUT_FOLDER": {
       "TITLE": "LƯU THƯ MỤC ĐẦU RA",
       "DESCRIPTION": "Nếu được kích hoạt, thư mục đầu ra sẽ được ghi nhớ giữa các phiên làm việc."
     },
     "AUTO_UPDATE": {
-      "TITLE": "CẬP NHẬT TỰ ĐỘNG UPSCAYL",
+      "TITLE": "CẬP NHẬT TỰ ĐỘNG PIXEL UP",
       "DESCRIPTION": "Nếu được kích hoạt, ứng dụng sẽ kiểm tra các bản cập nhật mới và thông báo cho bạn."
     },
     "ENABLE_CONTRIBUTION": {
-      "TITLE": "GIÚP CẢI THIỆN UPSCAYL",
-      "DESCRIPTION": "Nếu được kích hoạt, Upscayl sẽ thu thập dữ liệu sử dụng ẩn danh để cải thiện giao diện và các tính năng của ứng dụng."
+      "TITLE": "GIÚP CẢI THIỆN PIXEL UP",
+      "DESCRIPTION": "Nếu được kích hoạt, Pixel UP sẽ thu thập dữ liệu sử dụng ẩn danh để cải thiện giao diện và các tính năng của ứng dụng."
     },
     "THEME": {
-      "TITLE": "CHỦ ĐỀ UPSCAYL"
+      "TITLE": "CHỦ ĐỀ PIXEL UP"
     },
     "LANGUAGE": {
-      "TITLE": "NGÔN NGỮ UPSCAYL"
+      "TITLE": "NGÔN NGỮ PIXEL UP"
     },
     "CUSTOM_TILE_SIZE": {
       "TITLE": "KÍCH THƯỚC GẠCH TÙY CHỈNH",
@@ -95,7 +99,7 @@
     },
     "TURN_OFF_NOTIFICATIONS": {
       "TITLE": "TẮT THÔNG BÁO",
-      "DESCRIPTION": "Nếu được kích hoạt, Upscayl sẽ không gửi bất kỳ thông báo hệ thống nào về sự thành công hoặc thất bại."
+      "DESCRIPTION": "Nếu được kích hoạt, Pixel UP sẽ không gửi bất kỳ thông báo hệ thống nào về sự thành công hoặc thất bại."
     },
     "SUPPORT": {
       "TITLE": "Có gặp vấn đề?",
@@ -111,10 +115,23 @@
     }
   },
   "APP": {
-    "TITLE": "Upscayl",
+    "TITLE": "Pixel UP",
+    "ACTIVATION": {
+      "TITLE": "KÍCH HOẠT BẢN QUYỀN",
+      "DESCRIPTION": "Vui lòng nhập mã kích hoạt để bắt đầu sử dụng sản phẩm. Nếu bạn chưa có mã bản quyền, hãy click vào liên kết bên dưới để nhận hỗ trợ.",
+      "INPUT_PLACEHOLDER": "Nhập mã kích hoạt (Ví dụ: PIXELUP-XXXXXX-XXXXXX)",
+      "BUTTON_TITLE": "Kích hoạt ứng dụng",
+      "SUPPORT_LINK": "Chưa có mã kích hoạt? Nhận mã tại sharpix.me",
+      "SUCCESS": "Kích hoạt bản quyền thành công! Cảm ơn bạn đã ủng hộ.",
+      "ERROR": "Mã kích hoạt không đúng hoặc đã hết hạn. Vui lòng kiểm tra lại!",
+      "ERROR_DIFFERENT_MACHINE": "Mã kích hoạt này được tạo cho máy tính khác, không thể sử dụng trên máy tính này!",
+      "ERROR_EXPIRED": "Mã kích hoạt của bạn đã hết hạn! Vui lòng liên hệ quản trị viên để gia hạn.",
+      "ERROR_CLOCK_TAMPERED": "Phát hiện thời gian hệ thống không hợp lý. Vui lòng đặt lại giờ chính xác!",
+      "MACHINE_ID_LABEL": "Mã máy của bạn (Gửi mã này cho chúng tôi để nhận mã kích hoạt):"
+    },
     "BATCH_MODE": {
-      "TITLE": "Batch Upscayl",
-      "DESCRIPTION": "Điều này sẽ cho phép bạn Upscayl tất cả các tệp trong một thư mục cùng một lúc"
+      "TITLE": "Xử lý hàng loạt",
+      "DESCRIPTION": "Nâng cấp chất lượng toàn bộ hình ảnh trong một thư mục cùng một lúc."
     },
     "FILE_SELECTION": {
       "TITLE": "Bước 1",
@@ -122,7 +139,8 @@
       "SINGLE_MODE_TYPE": "Chọn Hình ảnh"
     },
     "MODEL_SELECTION": {
-      "TITLE": "Bước 2",
+      "TITLE": "Lõi xử lý Neural",
+      "LABEL": "Mô hình AI",
       "DESCRIPTION": "Chọn Mô hình AI",
       "IMPORTED_CUSTOM_MODELS": "Mô hình Tùy chỉnh Nhập khẩu",
       "BEFORE": "Trước",
@@ -130,23 +148,23 @@
       "ZOOM": "Phóng to",
       "MODELS": {
         "upscayl-standard-4x": {
-          "NAME": "Upscayl Standard",
+          "NAME": "Pixel UP Standard",
           "DESCRIPTION": "Phù hợp với hầu hết các hình ảnh."
         },
         "upscayl-lite-4x": {
-          "NAME": "Upscayl Lite",
+          "NAME": "Pixel UP Lite",
           "DESCRIPTION": "Phù hợp với hầu hết các hình ảnh. Tăng cường tốc độ cao với tổn thất chất lượng tối thiểu."
         },
         "remacri-4x": {
-          "NAME": "Remacri (Không thương mại)",
-          "DESCRIPTION": "Dành cho hình ảnh tự nhiên. Tăng thêm độ sắc nét và chi tiết. Không sử dụng cho mục đích thương mại."
+          "NAME": "Remacri",
+          "DESCRIPTION": "Dành cho hình ảnh tự nhiên. Tăng thêm độ sắc nét và chi tiết."
         },
         "ultramix-balanced-4x": {
-          "NAME": "Ultramix (Không thương mại)",
-          "DESCRIPTION": "Dành cho hình ảnh tự nhiên với sự cân bằng giữa độ sắc nét và chi tiết."
+          "NAME": "Ultramix",
+          "DESCRIPTION": "Dành cho hình ảnh tự nhiên với sự cân biến giữa độ sắc nét và chi tiết."
         },
         "ultrasharp-4x": {
-          "NAME": "Ultrasharp (Không thương mại)",
+          "NAME": "Ultrasharp",
           "DESCRIPTION": "Dành cho hình ảnh tự nhiên tập trung vào độ sắc nét."
         },
         "digital-art-4x": {
@@ -160,65 +178,72 @@
       }
     },
     "DOUBLE_UPSCAYL": {
-      "TITLE": "Double Upscayl",
-      "DESCRIPTION": "Kích hoạt tùy chọn này để chạy Upscayl hai lần trên một hình ảnh. Lưu ý rằng điều này có thể làm tăng đáng kể thời gian xử lý và có thể gây ra vấn đề hiệu suất cho các tỷ lệ lớn hơn 4X."
+      "TITLE": "Double Pixel UP",
+      "DESCRIPTION": "Kích hoạt tùy chọn này để chạy Pixel UP hai lần trên một hình ảnh. Lưu ý rằng điều này có thể làm tăng đáng kể thời gian xử lý và có thể gây ra vấn đề hiệu suất cho các tỷ lệ lớn hơn 4X."
     },
     "OUTPUT_PATH_SELECTION": {
-      "TITLE": "Bước 3",
-      "MAC_APP_STORE_ALERT": "Do các hạn chế bảo mật của MacOS App Store, Upscayl yêu cầu bạn chọn một thư mục đầu ra mỗi lần bạn khởi động nó.\n\nĐể tránh điều này, bạn có thể lưu một thư mục đầu ra mặc định một cách vĩnh viễn trong tab 'Cài đặt' của Upscayl.",
+      "TITLE": "Định tuyến Dữ liệu",
+      "LOCAL_WORKSPACE": "Workspace cục bộ",
+      "DEFAULT_BADGE": "Mặc định",
+      "CUSTOM_BADGE": "Tùy chỉnh",
+      "MAC_APP_STORE_ALERT": "Do các hạn chế bảo mật của MacOS App Store, Pixel UP yêu cầu bạn chọn một thư mục đầu ra mỗi lần bạn khởi động nó.\n\nĐể tránh điều này, bạn có thể lưu một thư mục đầu ra mặc định một cách vĩnh viễn trong tab 'Cài đặt' của Pixel UP.",
       "NOT_SELECTED": "Chưa chọn",
       "DEFAULT_IMG_PATH": "Mặc định là Đường dẫn của Hình ảnh",
       "DEFAULT_FOLDER_PATH": "Mặc định là Đường dẫn của Thư mục",
       "BUTTON_TITLE": "Đặt Thư mục Đầu Ra"
     },
     "SCALE_SELECTION": {
-      "TITLE": "Bước 4",
-      "FROM_TITLE": "Upscayl từ ",
+      "TITLE": "",
+      "FROM_TITLE": "Pixel UP từ ",
       "TO_TITLE": " đến ",
       "NO_OUTPUT_FOLDER_ALERT": "Vui lòng chọn một thư mục đầu ra trước",
-      "START_BUTTON_TITLE": "Upscayl 🚀",
-      "IN_PROGRESS_BUTTON_TITLE": "Đang tiến hành Upscayl ⏳"
+      "START_BUTTON_TITLE": "Khởi tạo Tiến trình AI",
+      "IN_PROGRESS_BUTTON_TITLE": "Đang khởi tạo tiến trình... ⏳"
     },
     "MORE_OPTIONS_DRAWER": {
       "RESET_BUTTON_TITLE": "Đặt Lại Hình Ảnh",
       "LENS_VIEW_TITLE": "Chế độ Ống kính",
       "SLIDER_VIEW_TITLE": "Chế độ Trượt",
       "ZOOM_AMOUNT_TITLE": "Số lượng Phóng to",
-      "TOTAL_UPSCAYLS": "Tổng số Upscayls",
-      "TOTAL_BATCH_UPSCAYLS": "Tổng số Batch Upscayls",
-      "TOTAL_IMAGE_UPSCAYLS": "Tổng số Upscayls Hình Ảnh",
-      "TOTAL_DOUBLE_UPSCAYLS": "Tổng số Double Upscayls",
-      "AVERAGE_UPSCAYL_TIME": "Thời gian Upscayl Trung Bình",
-      "LAST_UPSCAYL_DURATION": "Thời gian Upscayl Cuối Cùng",
+      "TOTAL_UPSCAYLS": "Tổng số Pixel UPings",
+      "TOTAL_BATCH_UPSCAYLS": "Tổng số Batch Pixel UPings",
+      "TOTAL_IMAGE_UPSCAYLS": "Tổng số Pixel UPings Hình Ảnh",
+      "TOTAL_DOUBLE_UPSCAYLS": "Tổng số Double Pixel UPings",
+      "AVERAGE_UPSCAYL_TIME": "Thời gian Pixel UPing Trung Bình",
+      "LAST_UPSCAYL_DURATION": "Thời gian Pixel UPing Cuối Cùng",
       "LAST_USED_AT": "Lần Cuối Sử Dụng Tại"
     },
     "PROGRESS_BAR": {
-      "BATCH_UPSCAYL_IN_PROGRESS_TITLE": "Batch Upscayl Đang Tiến Hành:",
-      "IN_PROGRESS_TITLE": "Đang thực hiện phép màu Upscayl...",
+      "BATCH_UPSCAYL_IN_PROGRESS_TITLE": "Batch Pixel UP Đang Tiến Hành:",
+      "IN_PROGRESS_TITLE": "Đang thực hiện phép màu Pixel UP...",
       "STOP_BUTTON_TITLE": "DỪNG"
     },
     "RESET_BUTTON_TITLE": "Đặt Lại",
+    "SELECT_DIFFERENT_FOLDER": "Chọn lại thư mục khác",
+    "SELECT_DIFFERENT_IMAGE": "Chọn ảnh khác",
     "RIGHT_PANE_INFO": {
       "SELECT_FOLDER": "Chọn một Thư mục",
       "SELECT_IMAGE": "Chọn một Hình ảnh",
       "SELECT_FOLDER_DESCRIPTION": "Đảm bảo rằng thư mục không chứa gì ngoài các hình ảnh PNG, JPG, JPEG & WEBP.",
       "SELECT_IMAGES_DESCRIPTION": "Chọn hoặc kéo và thả một hình ảnh PNG, JPG, JPEG hoặc WEBP.",
-      "PASTE_IMAGE_DESCRIPTION": "Nhấn Ctrl+V hoặc ⌘+V để Dán hình ảnh từ Clipboard"
+      "PASTE_IMAGE_DESCRIPTION": "Nhấn Ctrl+V hoặc ⌘+V để Dán hình ảnh từ Clipboard",
+      "INPUT_DATA_SETUP": "Thiết lập dữ liệu đầu vào",
+      "INPUT_DATA_DESCRIPTION": "Kéo thả tệp hình ảnh vào khu vực này hoặc nhấn để trích xuất từ bộ nhớ cục bộ"
     },
     "PROGRESS": {
       "PROCESSING_TITLE": "Đang xử lý hình ảnh...",
       "SCALING_CONVERTING_TITLE": "Đang thay đổi kích thước và chuyển đổi hình ảnh...",
       "WAIT_TITLE": "Chờ một chút...",
-      "SUCCESS_TITLE": "Upscayl Thành Công!",
+      "SUCCESS_TITLE": "Pixel UP Thành Công!",
       "BATCH": {
         "SELECTED_FOLDER_TITLE": "Thư mục đã chọn:",
         "DONE_TITLE": "Tất cả đã xong!",
-        "OPEN_UPSCAYLED_FOLDER_TITLE": "Mở Thư mục Upscayled"
+        "OPEN_UPSCAYLED_FOLDER_TITLE": "Mở Thư mục Pixel UPed"
       }
     },
     "SLIDER": {
       "ORIGINAL_TITLE": "Gốc",
-      "UPSCAYLED_TITLE": "Đã Upscayl"
+      "UPSCAYLED_TITLE": "Đã Pixel UPed"
     },
     "DIALOG_BOX": {
       "CLOSE": "Đóng"
@@ -243,7 +268,7 @@
     },
     "EXCEPTION_ERROR": {
       "TITLE": "Lỗi Ngoại lệ",
-      "DESCRIPTION": "Upscayl gặp lỗi. Có thể, nhị phân Upscayl không thực hiện các lệnh đúng cách. Hãy kiểm tra nhật ký để xem bạn có thông tin gì không. Bạn có thể đăng vấn đề trên kho lưu trữ GitHub của Upscayl để được giúp đỡ thêm."
+      "DESCRIPTION": "Pixel UP gặp lỗi. Có thể, nhị phân Upscayl không thực hiện các lệnh đúng cách. Hãy kiểm tra nhật ký để xem bạn có thông tin gì không. Bạn có thể đăng vấn đề trên kho lưu trữ GitHub của Pixel UP để được giúp đỡ thêm."
     },
     "GENERIC_ERROR": {
       "TITLE": "Lỗi"
@@ -263,7 +288,7 @@
       "DESCRIPTION": "Vui lòng chọn một hình ảnh để tăng cường"
     },
     "METADATA_ERROR": {
-      "TITLE": "Lỗi Sao Chép Metadata", 
+      "TITLE": "Lỗi Sao Chép Metadata",
       "DESCRIPTION": "Không thể sao chép metadata từ ảnh gốc sang ảnh đã tạo. ({data})"
     },
     "OPEN_DOCS_TITLE": "Mở Tài liệu",
@@ -277,13 +302,13 @@
       "TITLE": "Cảnh báo về Metadata",
       "DESCRIPTION": "Trên một số hệ thống, metadata có thể không hiển thị trong các định dạng khác ngoài JPG. Sử dụng các công cụ chuyên dụng để xem metadata nếu cần."
     }
-  },    
+  },
   "UPSCAYL_CLOUD": {
     "COMING_SOON": "Sẽ ra mắt sớm!",
     "CATCHY_PHRASE_1": "Không còn lỗi, vấn đề phần cứng, thỏa hiệp chất lượng hoặc thời gian tải lâu!",
-    "CATCHY_PHRASE_2": "🌐 Upscayl bất cứ nơi nào, bất cứ lúc nào, trên bất cứ thiết bị nào\n☁️ Không cần Card Đồ họa hoặc phần mềm phần cứng\n👩 Tăng cường Khuôn mặt\n🦋 Hơn 10 mô hình để lựa chọn\n🏎 Nhanh hơn 5 lần so với Upscayl Desktop\n🎞 Tăng cường Video\n💰 Sử dụng Thương mại\n😴 Upscayl trong khi bạn ngủ",
+    "CATCHY_PHRASE_2": "🌐 Pixel UP bất cứ nơi nào, bất cứ lúc nào, trên bất cứ thiết bị nào\n☁️ Không cần Card Đồ họa hoặc phần mềm phần cứng\n👩 Tăng cường Khuôn mặt\n🦋 Hơn 10 mô hình để lựa chọn\n🏎 Nhanh hơn 5 lần so với Pixel UP Desktop\n🎞 Tăng cường Video\n💰 Sử dụng Thương mại\n😴 Pixel UP trong khi bạn ngủ",
     "ALREADY_REGISTERED_ALERT": "Cảm ơn bạn {name}! Có vẻ như email của bạn đã được đăng ký rồi :D Nếu không phải vậy, vui lòng thử lại.",
-    "ADD_SUCCESS": "Cảm ơn bạn đã tham gia danh sách chờ! Chúng tôi sẽ thông báo khi Upscayl Cloud sẵn sàng cho bạn.",
+    "ADD_SUCCESS": "Cảm ơn bạn đã tham gia danh sách chờ! Chúng tôi sẽ thông báo khi Pixel UP Cloud sẵn sàng cho bạn.",
     "INCORRECT_FIELDS_ALERT": "Vui lòng điền đúng các trường thông tin.",
     "JOIN_WAITLIST": "Tham gia danh sách chờ",
     "DONT_SHOW_AGAIN": "KHÔNG HIỂN THỊ LẠI"
@@ -294,7 +319,7 @@
     "GET_STARTED_BUTTON_TITLE": "Bắt đầu",
     "SETTINGS_NOTE": "Bạn luôn có thể thay đổi các cài đặt này sau.",
     "STEP_1": {
-      "TITLE": "Chào mừng đến với Upscayl 🎉",
+      "TITLE": "Chào mừng đến với Pixel UP 🎉",
       "DESCRIPTION": "Hãy để chúng tôi giúp bạn bắt đầu với một vài bước nhanh chóng."
     },
     "STEP_2": {
@@ -302,12 +327,12 @@
       "DESCRIPTION": "Cấu hình cài đặt ban đầu của bạn."
     },
     "STEP_3": {
-      "TITLE": "Làm thế nào để sử dụng Upscayl? 🚀",
+      "TITLE": "Làm thế nào để sử dụng Pixel UP? 🚀",
       "DESCRIPTION": "Xem video ngắn này để tìm hiểu về các tính năng mới."
     },
     "STEP_4": {
       "TITLE": "Bạn đã sẵn sàng! 🎉",
-      "DESCRIPTION": "Bạn đã sẵn sàng để bắt đầu tăng cường hình ảnh với Upscayl!"
+      "DESCRIPTION": "Bạn đã sẵn sàng để bắt đầu tăng cường hình ảnh với Pixel UP!"
     }
   }
 }

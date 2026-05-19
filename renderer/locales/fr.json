@@ -13,7 +13,9 @@
   },
   "SETTINGS": {
     "TITLE": "Paramètres",
-    "CHANGE_LANGUAGE": { "TITLE": "Changer de langue" },
+    "CHANGE_LANGUAGE": {
+      "TITLE": "Changer de langue"
+    },
     "IMAGE_COMPRESSION": {
       "TITLE": "Compression d'image",
       "DESCRIPTION": "La compression PNG est sans perte, donc elle pourrait ne pas réduire la taille du fichier de manière significative et des valeurs de compression plus élevées pourraient affecter les performances. La compression JPG et WebP est avec perte."
@@ -157,7 +159,8 @@
           "NAME": "Haute Fidélité",
           "DESCRIPTION": "Pour tous types d'images avec un accent sur les détails réalistes et les textures lisses."
         }
-      }
+      },
+      "LABEL": "AI Model"
     },
     "DOUBLE_UPSCAYL": {
       "TITLE": "Double Upscayl",
@@ -169,7 +172,10 @@
       "NOT_SELECTED": "Non sélectionné",
       "DEFAULT_IMG_PATH": "Par défaut au chemin de l'image",
       "DEFAULT_FOLDER_PATH": "Par défaut au chemin du dossier",
-      "BUTTON_TITLE": "Définir le dossier de sortie"
+      "BUTTON_TITLE": "Définir le dossier de sortie",
+      "LOCAL_WORKSPACE": "Local Workspace",
+      "DEFAULT_BADGE": "Default",
+      "CUSTOM_BADGE": "Custom"
     },
     "SCALE_SELECTION": {
       "TITLE": "Étape 4",
@@ -203,7 +209,9 @@
       "SELECT_IMAGE": "Sélectionnez une image à améliorer",
       "SELECT_FOLDER_DESCRIPTION": "Assurez-vous que le dossier ne contient rien d'autre que des images PNG, JPG, JPEG et WEBP.",
       "SELECT_IMAGES_DESCRIPTION": "Sélectionnez ou glissez-déposez une image PNG, JPG, JPEG ou WEBP.",
-      "PASTE_IMAGE_DESCRIPTION": "Appuyez sur Ctrl+V ou ⌘+V pour coller l'image depuis le presse-papiers"
+      "PASTE_IMAGE_DESCRIPTION": "Appuyez sur Ctrl+V ou ⌘+V pour coller l'image depuis le presse-papiers",
+      "INPUT_DATA_SETUP": "Input Data Setup",
+      "INPUT_DATA_DESCRIPTION": "Drag and drop an image file into this area or click to extract from local memory"
     },
     "PROGRESS": {
       "PROCESSING_TITLE": "Traitement de l'image...",
@@ -222,7 +230,22 @@
     },
     "DIALOG_BOX": {
       "CLOSE": "Fermer"
-    }
+    },
+    "ACTIVATION": {
+      "TITLE": "LICENSE ACTIVATION",
+      "DESCRIPTION": "Please enter your activation code to start using the product. If you do not have an activation code, click the link below to get support.",
+      "INPUT_PLACEHOLDER": "Enter activation code (Example: PIXELUP-XXXXXX-XXXXXX)",
+      "BUTTON_TITLE": "Activate Application",
+      "SUPPORT_LINK": "No activation code? Get license at sharpix.me",
+      "SUCCESS": "License activated successfully! Thank you for your support.",
+      "ERROR": "Invalid or expired activation code. Please check again!",
+      "ERROR_DIFFERENT_MACHINE": "This activation code was created for a different computer, it cannot be used on this computer!",
+      "ERROR_EXPIRED": "This activation code has expired! Please contact the admin to renew.",
+      "ERROR_CLOCK_TAMPERED": "Unusual system clock detected. Please set your system time to the correct time!",
+      "MACHINE_ID_LABEL": "Your Machine ID (Send this to us to get your activation code):"
+    },
+    "SELECT_DIFFERENT_FOLDER": "Select another folder",
+    "SELECT_DIFFERENT_IMAGE": "Select another image"
   },
   "ERRORS": {
     "GPU_ERROR": {
@@ -277,7 +300,7 @@
       "TITLE": "Avertissement sur les métadonnées",
       "DESCRIPTION": "Sur certains systèmes, les métadonnées peuvent ne pas être visibles dans les formats autres que JPG. Utilisez des outils spécifiques pour visualiser les métadonnées si nécessaire."
     }
-  },  
+  },
   "UPSCAYL_CLOUD": {
     "COMING_SOON": "Bientôt disponible !",
     "CATCHY_PHRASE_1": "Plus d'erreurs, de problèmes matériels, de compromis sur la qualité ou de longs temps de chargement !",
@@ -309,5 +332,9 @@
       "TITLE": "Vous êtes prêt ! 🎉",
       "DESCRIPTION": "Vous êtes prêt à commencer à améliorer des images avec Upscayl !"
     }
-  }
+  },
+  "OVERVIEW": "Overview",
+  "AI_PARAMETERS": "AI Parameters",
+  "RESOLUTION_PARAMS": "Resolution Parameters",
+  "SCALE_LABEL": "Amplification Coefficient"
 }

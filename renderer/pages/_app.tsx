@@ -6,12 +6,23 @@ import "react-tooltip/dist/react-tooltip.css";
 import { Toaster } from "@/components/ui/toaster";
 import { Tooltip } from "react-tooltip";
 import PostHogProviderWrapper from "@/components/posthog-provider-wrapper";
+import { useEffect } from "react";
 
 const MyApp = ({ Component, pageProps }: AppProps) => {
+  useEffect(() => {
+    const savedTheme = localStorage.getItem("theme");
+    if (!savedTheme) {
+      localStorage.setItem("theme", "upscayl");
+      document.documentElement.setAttribute("data-theme", "upscayl");
+    } else {
+      document.documentElement.setAttribute("data-theme", savedTheme);
+    }
+  }, []);
+
   return (
     <>
       <Head>
-        <title>Upscayl</title>
+        <title>Pixel UP</title>
       </Head>
       <base href="./" />
 
@@ -30,3 +41,4 @@ const MyApp = ({ Component, pageProps }: AppProps) => {
 };
 
 export default MyApp;
+

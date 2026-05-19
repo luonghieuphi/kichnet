@@ -13,7 +13,9 @@
   },
   "SETTINGS": {
     "TITLE": "Parametri",
-    "CHANGE_LANGUAGE": { "TITLE": "Cambia lingua" },
+    "CHANGE_LANGUAGE": {
+      "TITLE": "Cambia lingua"
+    },
     "IMAGE_COMPRESSION": {
       "TITLE": "Compressione di immagine",
       "DESCRIPTION": "La compressione PNG è senza perdite, quindi potrebbe non ridurre significativamente le dimensioni del file e valori di compressione più elevati potrebbero influire sulle prestazioni. La compressione JPG e WebP è con perdita di dati."
@@ -157,7 +159,8 @@
           "NAME": "Alta fedeltà",
           "DESCRIPTION": "Per tutti i tipi di immagini con un'enfasi su dettagli realistici e texture morbide."
         }
-      }
+      },
+      "LABEL": "AI Model"
     },
     "DOUBLE_UPSCAYL": {
       "TITLE": "Doppio Upscayl",
@@ -169,7 +172,10 @@
       "NOT_SELECTED": "Non selezionato",
       "DEFAULT_IMG_PATH": "Per impostazione predefinita è il percorso dell'immagine",
       "DEFAULT_FOLDER_PATH": "Per impostazione predefinita è il percorso della cartella",
-      "BUTTON_TITLE": "Imposta la cartella di output"
+      "BUTTON_TITLE": "Imposta la cartella di output",
+      "LOCAL_WORKSPACE": "Local Workspace",
+      "DEFAULT_BADGE": "Default",
+      "CUSTOM_BADGE": "Custom"
     },
     "SCALE_SELECTION": {
       "TITLE": "Fase 4",
@@ -203,7 +209,9 @@
       "SELECT_IMAGE": "Seleziona un'immagine da sovracampionare",
       "SELECT_FOLDER_DESCRIPTION": "Assicurati che la cartella non contenga altro che immagini PNG, JPG, JPEG e WEBP.",
       "SELECT_IMAGES_DESCRIPTION": "Seleziona o trascina e rilascia un'immagine PNG, JPG, JPEG o WEBP.",
-      "PASTE_IMAGE_DESCRIPTION": "Premi Ctrl+V o ⌘+V per incollare l'immagine dagli appunti"
+      "PASTE_IMAGE_DESCRIPTION": "Premi Ctrl+V o ⌘+V per incollare l'immagine dagli appunti",
+      "INPUT_DATA_SETUP": "Input Data Setup",
+      "INPUT_DATA_DESCRIPTION": "Drag and drop an image file into this area or click to extract from local memory"
     },
     "PROGRESS": {
       "PROCESSING_TITLE": "Elaborazione immagine...",
@@ -222,7 +230,22 @@
     },
     "DIALOG_BOX": {
       "CLOSE": "Chiudi"
-    }
+    },
+    "ACTIVATION": {
+      "TITLE": "LICENSE ACTIVATION",
+      "DESCRIPTION": "Please enter your activation code to start using the product. If you do not have an activation code, click the link below to get support.",
+      "INPUT_PLACEHOLDER": "Enter activation code (Example: PIXELUP-XXXXXX-XXXXXX)",
+      "BUTTON_TITLE": "Activate Application",
+      "SUPPORT_LINK": "No activation code? Get license at sharpix.me",
+      "SUCCESS": "License activated successfully! Thank you for your support.",
+      "ERROR": "Invalid or expired activation code. Please check again!",
+      "ERROR_DIFFERENT_MACHINE": "This activation code was created for a different computer, it cannot be used on this computer!",
+      "ERROR_EXPIRED": "This activation code has expired! Please contact the admin to renew.",
+      "ERROR_CLOCK_TAMPERED": "Unusual system clock detected. Please set your system time to the correct time!",
+      "MACHINE_ID_LABEL": "Your Machine ID (Send this to us to get your activation code):"
+    },
+    "SELECT_DIFFERENT_FOLDER": "Select another folder",
+    "SELECT_DIFFERENT_IMAGE": "Select another image"
   },
   "ERRORS": {
     "GPU_ERROR": {
@@ -277,7 +300,7 @@
       "TITLE": "Avviso sui metadati",
       "DESCRIPTION": "Su alcuni sistemi, i metadati potrebbero non essere visibili in formati diversi da JPG. Utilizza strumenti specifici per visualizzare i metadati se necessario."
     }
-  },  
+  },
   "UPSCAYL_CLOUD": {
     "COMING_SOON": "Presto disponibile !",
     "CATCHY_PHRASE_1": "Niente più errori, problemi hardware, compromessi di qualità o lunghi tempi di caricamento !",
@@ -309,5 +332,9 @@
       "TITLE": "Sei pronto ! 🎉",
       "DESCRIPTION": "Sei pronto per iniziare a sovracampionare le immagini con Upscayl !"
     }
-  }
+  },
+  "OVERVIEW": "Overview",
+  "AI_PARAMETERS": "AI Parameters",
+  "RESOLUTION_PARAMS": "Resolution Parameters",
+  "SCALE_LABEL": "Amplification Coefficient"
 }

@@ -13,8 +13,16 @@ const createMainWindow = () => {
   console.log("📂 DIRNAME", __dirname);
   console.log("🚃 App Path: ", app.getAppPath());
 
+  const iconPath = getPlatform() === "linux"
+    ? (electronIsDev
+        ? join(app.getAppPath(), "renderer", "public", "sharpix_logo_icon.png")
+        : join(app.getAppPath(), "renderer", "out", "sharpix_logo_icon.png"))
+    : (electronIsDev
+        ? join(app.getAppPath(), "renderer", "public", "icon.ico")
+        : join(app.getAppPath(), "renderer", "out", "icon.ico"));
+
   mainWindow = new BrowserWindow({
-    icon: join(__dirname, "build", "icon.png"),
+    icon: iconPath,
     width: 1300,
     height: 940,
     minHeight: 500,
@@ -33,10 +41,10 @@ const createMainWindow = () => {
   const url = electronIsDev
     ? "http://localhost:8000"
     : format({
-        pathname: join(__dirname, "../../renderer/out/index.html"),
-        protocol: "file:",
-        slashes: true,
-      });
+      pathname: join(__dirname, "../../renderer/out/index.html"),
+      protocol: "file:",
+      slashes: true,
+    });
 
   mainWindow.loadURL(url);
 
@@ -53,20 +61,7 @@ const createMainWindow = () => {
   fetchLocalStorage();
 
   if (!electronIsDev) {
-    console.log("🚀 Checking for updates");
-    mainWindow.webContents
-      .executeJavaScript('localStorage.getItem("autoUpdate");', true)
-      .then((lastSaved: string | null) => {
-        if (
-          lastSaved === null ||
-          lastSaved === undefined ||
-          lastSaved === "true"
-        ) {
-          autoUpdater.checkForUpdates();
-        } else {
-          console.log("🚀 Auto Update is disabled");
-        }
-      });
+    autoUpdater.checkForUpdatesAndNotify();
   }
 
   mainWindow.webContents.send(ELECTRON_COMMANDS.OS, getPlatform());

@@ -41,6 +41,7 @@ const MoreOptionsDrawer = ({
   console.log("🚀 => systemInfo:", systemInfo);
 
   useEffect(() => {
+    setViewType("slider");
     if (!localStorage.getItem("zoomAmount")) {
       localStorage.setItem("zoomAmount", zoomAmount);
     } else {
@@ -77,117 +78,26 @@ const MoreOptionsDrawer = ({
             {t("APP.MORE_OPTIONS_DRAWER.RESET_BUTTON_TITLE")}
           </button>
 
-          <div className="flex flex-row items-center gap-2">
+          <div className="flex flex-col gap-2">
             <p className="text-sm font-medium">
-              {t("APP.MORE_OPTIONS_DRAWER.LENS_VIEW_TITLE")}
+              {t("APP.MORE_OPTIONS_DRAWER.ZOOM_AMOUNT_TITLE")} ({zoomAmount}
+              %)
             </p>
             <input
-              type="checkbox"
-              className="toggle"
-              checked={viewType === "slider"}
+              type="range"
+              min="100"
+              max="1000"
+              step={10}
+              className="range range-md"
+              value={parseInt(zoomAmount)}
               onChange={(e) => {
-                setViewType(e.target.checked ? "slider" : "lens");
+                setZoomAmount(e.target.value);
+                localStorage.setItem("zoomAmount", e.target.value);
               }}
             />
-            <p className="text-sm font-medium">
-              {t("APP.MORE_OPTIONS_DRAWER.SLIDER_VIEW_TITLE")}
-            </p>
-          </div>
-
-          {viewType !== "lens" && (
-            <>
-              <div className="flex flex-col gap-2">
-                <p className="text-sm font-medium">
-                  {t("APP.MORE_OPTIONS_DRAWER.ZOOM_AMOUNT_TITLE")} ({zoomAmount}
-                  %)
-                </p>
-                <input
-                  type="range"
-                  min="100"
-                  max="1000"
-                  step={10}
-                  className="range range-md"
-                  value={parseInt(zoomAmount)}
-                  onChange={(e) => {
-                    setZoomAmount(e.target.value);
-                    localStorage.setItem("zoomAmount", e.target.value);
-                  }}
-                />
-              </div>
-            </>
-          )}
-        </div>
-
-        <div className="mt-5 flex min-h-0 flex-1 flex-col gap-2">
-          <p className="text-sm font-semibold uppercase text-base-content">
-            Stats
-          </p>
-
-          <div className="stats stats-vertical overflow-y-auto">
-            <div className="stat">
-              <div className="stat-title">
-                {t("APP.MORE_OPTIONS_DRAWER.TOTAL_UPSCAYLS")}
-              </div>
-              <div className="stat-value text-2xl text-base-content">
-                {userStats.totalUpscayls}
-              </div>
-            </div>
-
-            <div className="stat">
-              <div className="stat-title">
-                {t("APP.MORE_OPTIONS_DRAWER.TOTAL_BATCH_UPSCAYLS")}
-              </div>
-              <div className="stat-value text-2xl text-base-content">
-                {userStats.batchUpscayls}
-              </div>
-            </div>
-
-            <div className="stat">
-              <div className="stat-title">
-                {t("APP.MORE_OPTIONS_DRAWER.TOTAL_IMAGE_UPSCAYLS")}
-              </div>
-              <div className="stat-value text-2xl text-base-content">
-                {userStats.imageUpscayls}
-              </div>
-            </div>
-
-            <div className="stat">
-              <div className="stat-title">
-                {t("APP.MORE_OPTIONS_DRAWER.TOTAL_DOUBLE_UPSCAYLS")}
-              </div>
-              <div className="stat-value text-2xl text-base-content">
-                {userStats.doubleUpscayls}
-              </div>
-            </div>
-
-            <div className="stat">
-              <div className="stat-title">
-                {t("APP.MORE_OPTIONS_DRAWER.AVERAGE_UPSCAYL_TIME")}
-              </div>
-              <div className="stat-value text-2xl text-base-content">
-                {formatDuration(userStats.averageUpscaylTime / 1000)}
-              </div>
-            </div>
-
-            <div className="stat">
-              <div className="stat-title">
-                {t("APP.MORE_OPTIONS_DRAWER.LAST_UPSCAYL_DURATION")}
-              </div>
-              <div className="stat-value text-2xl text-base-content">
-                {formatDuration(userStats.lastUpscaylDuration / 1000)}
-              </div>
-            </div>
-
-            <div className="stat">
-              <div className="stat-title">
-                {t("APP.MORE_OPTIONS_DRAWER.LAST_USED_AT")}
-              </div>
-              <div className="stat-value text-2xl text-base-content">
-                {new Date(userStats.lastUsedAt).toLocaleString()}
-              </div>
-            </div>
           </div>
         </div>
+
       </div>
     </div>
   );

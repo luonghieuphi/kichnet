@@ -1,6 +1,7 @@
 import { translationAtom } from "@/atoms/translations-atom";
 import { useCustomWidthAtom } from "@/atoms/user-settings-atom";
-import { useAtomValue } from "jotai";
+import { useAtom, useAtomValue } from "jotai";
+import React, { useState, useEffect } from "react";
 
 type ImageScaleSelectProps = {
   scale: string;
@@ -13,21 +14,91 @@ export function SelectImageScale({
   setScale,
   hideInfo,
 }: ImageScaleSelectProps) {
-  const useCustomWidth = useAtomValue(useCustomWidthAtom);
+  const [useCustomWidth, setUseCustomWidth] = useAtom(useCustomWidthAtom);
   const t = useAtomValue(translationAtom);
 
+  // Initialize showSlider if scale is not one of the standard buttons
+  const [showSlider, setShowSlider] = useState(!["1", "2", "4", "8"].includes(scale));
+
+  useEffect(() => {
+    if (!["1", "2", "4", "8"].includes(scale)) {
+      setShowSlider(true);
+    }
+  }, [scale]);
+
+  const isActive = (val: string) => !useCustomWidth && scale === val && !showSlider;
+
+  const handleSelectScale = (val: string) => {
+    setUseCustomWidth(false);
+    setShowSlider(false);
+    setScale(val);
+  };
+
+  const handleSelectCustom = () => {
+    setUseCustomWidth(false);
+    setShowSlider(true);
+  };
+
+  if (hideInfo) {
+    return (
+      <div className="flex flex-col gap-2.5">
+        {/* STEP 2 HEADER */}
+        <div className="flex items-center gap-2.5 mb-0.5">
+          <div className="flex items-center justify-center rounded-[6px] border border-info/30 bg-info/10 px-1.5 py-0.5 text-[11px] font-bold text-info select-none">
+            02
+          </div>
+          <p className="step-heading !mb-0 leading-none">{t("RESOLUTION_PARAMS" as any)}</p>
+        </div>
+
+        {/* PREMIUM SLIDER CARD */}
+        <div className="flex flex-col gap-3 rounded-[14px] bg-base-200 border border-base-content/10 p-4 select-none">
+          <div className="flex items-center justify-between">
+            <span className="text-sm font-semibold text-base-content/65">
+              {t("SCALE_LABEL" as any)}
+            </span>
+            <span className="text-sm font-bold text-primary">
+              {scale}X
+            </span>
+          </div>
+          <input
+            type="range"
+            min="1"
+            max="16"
+            value={scale}
+            onChange={(e: any) => {
+              setUseCustomWidth(false);
+              setScale(e.target.value.toString());
+            }}
+            step="1"
+            className="custom-slider mt-1"
+          />
+        </div>
+
+        {useCustomWidth && (
+          <div className="text-xs text-warning/80 mt-1 bg-warning/5 px-3 py-2 rounded-xl border border-warning/10">
+            ⚠️ Đang sử dụng <b>Chiều rộng tùy chỉnh (px)</b> cấu hình trong Cài đặt.
+          </div>
+        )}
+      </div>
+    );
+  }
+
   return (
-    <div className={`${useCustomWidth && "opacity-50"}`}>
-      <div className="flex flex-row items-center gap-2">
+    <div>
+      <div className="flex flex-row items-center gap-2 mb-2">
         {hideInfo ? (
           <>
-            <p className="text-sm">
+            <p className="text-sm font-semibold">
               {t("SETTINGS.IMAGE_SCALE.TITLE")}{" "}
-              <span className="text-xs">({scale}X)</span>
+              {!useCustomWidth && (
+                <span className="text-xs font-semibold text-primary">
+                  ({scale}X)
+                </span>
+              )}
             </p>
-            {hideInfo && parseInt(scale) >= 6 && (
+            {!useCustomWidth && parseInt(scale) >= 6 && (
               <span
-                className="text-xs font-bold text-error"
+                className="text-xs font-bold text-error cursor-help"
                 data-tooltip-id="tooltip"
                 data-tooltip-content={t("SETTINGS.IMAGE_SCALE.WARNING")}
               >
@@ -35,7 +106,7 @@ export function SelectImageScale({
                   className="h-4 w-4"
                   stroke="currentColor"
                   fill="currentColor"
-                  stroke-width="0"
+                  strokeWidth="0"
                   viewBox="0 0 24 24"
                   xmlns="http://www.w3.org/2000/svg"
                 >
@@ -46,35 +117,85 @@ export function SelectImageScale({
           </>
         ) : (
           <p className="text-sm font-medium">
-            {t("SETTINGS.IMAGE_SCALE.TITLE")} ({scale}X){" "}
+            {t("SETTINGS.IMAGE_SCALE.TITLE")} {!useCustomWidth && `(${scale}X)`}{" "}
             {useCustomWidth && "DISABLED"}
           </p>
         )}
       </div>
+
       {!hideInfo && (
-        <p className="text-xs text-base-content/80">
+        <p className="text-xs text-base-content/85 mb-3">
           {t("SETTINGS.IMAGE_SCALE.DESCRIPTION")}
         </p>
       )}
-      {!hideInfo && parseInt(scale) >= 6 && (
-        <p className="text-xs text-base-content/80 text-red-500">
+      {!hideInfo && !useCustomWidth && parseInt(scale) >= 6 && (
+        <p className="text-xs text-base-content/85 text-red-500 mb-3">
           {t("SETTINGS.IMAGE_SCALE.ADDITIONAL_WARNING")}
         </p>
       )}
 
-      <input
-        type="range"
-        min="1"
-        max="16"
-        placeholder="Example: 1320"
-        value={scale}
-        onChange={(e: any) => {
-          setScale(e.target.value.toString());
-        }}
-        step="1"
-        className="range range-primary mt-2"
-        disabled={useCustomWidth}
-      />
+      {/* Button group matching mockup */}
+      <div className="flex flex-row gap-2 mt-2">
+        {["2", "4", "8"].map((s) => (
+          <button
+            key={s}
+            type="button"
+            onClick={() => handleSelectScale(s)}
+            className={`w-11 h-11 flex items-center justify-center rounded-xl border text-xs font-bold transition-all duration-200 active:scale-95 ${
+              isActive(s)
+                ? "bg-[#5D5FEF] border-[#5D5FEF] text-white shadow-lg shadow-[#5D5FEF]/30"
+                : "bg-base-200 border-white/5 text-base-content/80 hover:bg-base-300 hover:border-white/10"
+            }`}
+          >
+            {s}x
+          </button>
+        ))}
+
+
+        <button
+          type="button"
+          onClick={handleSelectCustom}
+          className={`flex-1 h-11 flex items-center justify-center rounded-xl border text-xs font-bold transition-all duration-200 active:scale-95 ${
+            showSlider && !useCustomWidth
+              ? "bg-[#5D5FEF] border-[#5D5FEF] text-white shadow-lg shadow-[#5D5FEF]/30"
+              : "bg-base-200 border-white/5 text-base-content/80 hover:bg-base-300 hover:border-white/10"
+          }`}
+        >
+          Tùy chỉnh
+        </button>
+      </div>
+
+      {/* Old range slider (1 to 16) displayed inside premium container */}
+      {showSlider && !useCustomWidth && (
+        <div className="mt-3 animate-step-in flex flex-col gap-2 bg-base-200/50 p-3 rounded-xl border border-white/5">
+          <div className="flex items-center justify-between">
+            <span className="text-[11px] text-base-content/75 font-semibold">
+              Kéo để thay đổi tỷ lệ
+            </span>
+            <span className="text-xs font-bold text-primary bg-primary/10 px-2 py-0.5 rounded-md">
+              {scale}X
+            </span>
+          </div>
+          <input
+            type="range"
+            min="1"
+            max="16"
+            value={scale}
+            onChange={(e: any) => {
+              setScale(e.target.value.toString());
+            }}
+            step="1"
+            className="custom-slider mt-1"
+          />
+        </div>
+      )}
+
+      {useCustomWidth && (
+        <div className="text-xs text-warning/80 mt-2 bg-warning/5 px-3 py-2 rounded-xl border border-warning/10">
+          ⚠️ Đang sử dụng <b>Chiều rộng tùy chỉnh (px)</b> cấu hình trong Cài đặt.
+        </div>
+      )}
     </div>
   );
 }
+

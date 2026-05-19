@@ -51,6 +51,7 @@ const Sidebar = ({
   imagePath,
   selectImageHandler,
   selectFolderHandler,
+  resetImagePaths,
 }: {
   setUpscaledImagePath: React.Dispatch<React.SetStateAction<string>>;
   batchFolderPath: string;
@@ -62,6 +63,7 @@ const Sidebar = ({
   imagePath: string;
   selectImageHandler: () => Promise<void>;
   selectFolderHandler: () => Promise<void>;
+  resetImagePaths: () => void;
 }) => {
   const t = useTranslation();
   const logit = useLogger();
@@ -195,23 +197,9 @@ const Sidebar = ({
 
   return (
     <>
-      {/* TOP LOGO WHEN SIDEBAR IS HIDDEN */}
-      {!showSidebar && <UpscaylLogo />}
-
-      <SidebarToggleButton
-        showSidebar={showSidebar}
-        setShowSidebar={setShowSidebar}
-      />
-
       <div
-        className={`relative flex h-screen min-w-[350px] max-w-[350px] flex-col bg-base-100 ${showSidebar ? "" : "hidden"}`}
+        className="relative flex h-screen min-w-[350px] max-w-[350px] flex-col bg-base-100 overflow-y-auto scrollbar-none"
       >
-        <button
-          className="absolute -right-0 top-1/2 z-50 -translate-y-1/2 translate-x-1/2 rounded-full bg-base-100 p-4"
-          onClick={() => setShowSidebar((prev) => !prev)}
-        >
-          <ChevronLeftIcon />
-        </button>
 
         {window.electron.platform === "mac" && (
           <div className="mac-titlebar pt-8"></div>
@@ -236,6 +224,8 @@ const Sidebar = ({
             dimensions={dimensions}
             setGpuId={setGpuId}
             setSaveImageAs={setSaveImageAs}
+            resetImagePaths={resetImagePaths}
+            batchFolderPath={batchFolderPath}
           />
         )}
 

@@ -13,7 +13,9 @@
   },
   "SETTINGS": {
     "TITLE": "Pengaturan",
-    "CHANGE_LANGUAGE": { "TITLE": "Ubah Bahasa" },
+    "CHANGE_LANGUAGE": {
+      "TITLE": "Ubah Bahasa"
+    },
     "IMAGE_COMPRESSION": {
       "TITLE": "Kompresi Gambar",
       "DESCRIPTION": "Kompresi PNG bersifat lossless, sehingga mungkin tidak mengurangi ukuran file secara signifikan dan nilai kompresi yang lebih tinggi dapat mempengaruhi kinerja. Kompresi JPG dan WebP bersifat lossy."
@@ -157,7 +159,8 @@
           "NAME": "High Fidelity",
           "DESCRIPTION": "Untuk semua jenis gambar dengan fokus pada detail realistis dan tekstur halus."
         }
-      }
+      },
+      "LABEL": "AI Model"
     },
     "DOUBLE_UPSCAYL": {
       "TITLE": "Double Upscayl",
@@ -169,7 +172,10 @@
       "NOT_SELECTED": "Tidak Dipilih",
       "DEFAULT_IMG_PATH": "Default ke lokasi Gambar",
       "DEFAULT_FOLDER_PATH": "Default ke lokasi Folder",
-      "BUTTON_TITLE": "Setel Folder Output"
+      "BUTTON_TITLE": "Setel Folder Output",
+      "LOCAL_WORKSPACE": "Local Workspace",
+      "DEFAULT_BADGE": "Default",
+      "CUSTOM_BADGE": "Custom"
     },
     "SCALE_SELECTION": {
       "TITLE": "Langkah 4",
@@ -203,7 +209,9 @@
       "SELECT_IMAGE": "Pilih Gambar",
       "SELECT_FOLDER_DESCRIPTION": "Pastikan folder tidak berisi apapun kecuali gambar PNG, JPG, JPEG & WEBP.",
       "SELECT_IMAGES_DESCRIPTION": "Pilih atau seret dan lepas gambar PNG, JPG, JPEG atau WEBP.",
-      "PASTE_IMAGE_DESCRIPTION": "Tekan Ctrl+V atau ⌘+V untuk Menempel gambar dari Clipboard"
+      "PASTE_IMAGE_DESCRIPTION": "Tekan Ctrl+V atau ⌘+V untuk Menempel gambar dari Clipboard",
+      "INPUT_DATA_SETUP": "Input Data Setup",
+      "INPUT_DATA_DESCRIPTION": "Drag and drop an image file into this area or click to extract from local memory"
     },
     "PROGRESS": {
       "PROCESSING_TITLE": "Memproses gambar...",
@@ -222,7 +230,22 @@
     },
     "DIALOG_BOX": {
       "CLOSE": "Tutup"
-    }
+    },
+    "ACTIVATION": {
+      "TITLE": "LICENSE ACTIVATION",
+      "DESCRIPTION": "Please enter your activation code to start using the product. If you do not have an activation code, click the link below to get support.",
+      "INPUT_PLACEHOLDER": "Enter activation code (Example: PIXELUP-XXXXXX-XXXXXX)",
+      "BUTTON_TITLE": "Activate Application",
+      "SUPPORT_LINK": "No activation code? Get license at sharpix.me",
+      "SUCCESS": "License activated successfully! Thank you for your support.",
+      "ERROR": "Invalid or expired activation code. Please check again!",
+      "ERROR_DIFFERENT_MACHINE": "This activation code was created for a different computer, it cannot be used on this computer!",
+      "ERROR_EXPIRED": "This activation code has expired! Please contact the admin to renew.",
+      "ERROR_CLOCK_TAMPERED": "Unusual system clock detected. Please set your system time to the correct time!",
+      "MACHINE_ID_LABEL": "Your Machine ID (Send this to us to get your activation code):"
+    },
+    "SELECT_DIFFERENT_FOLDER": "Select another folder",
+    "SELECT_DIFFERENT_IMAGE": "Select another image"
   },
   "ERRORS": {
     "GPU_ERROR": {
@@ -309,5 +332,9 @@
       "TITLE": "Anda sudah siap! 🎉",
       "DESCRIPTION": "Anda siap untuk mulai meningkatkan gambar dengan Upscayl!"
     }
-  }
+  },
+  "OVERVIEW": "Overview",
+  "AI_PARAMETERS": "AI Parameters",
+  "RESOLUTION_PARAMS": "Resolution Parameters",
+  "SCALE_LABEL": "Amplification Coefficient"
 }

@@ -115,7 +115,8 @@ export function OnboardingDialog() {
     if (storedValue !== null) {
       setOpen(JSON.parse(storedValue));
     } else {
-      setOpen(true);
+      setOpen(false);
+      localStorage.setItem("showOnboarding", JSON.stringify(false));
     }
   }, []);
 

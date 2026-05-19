@@ -15,6 +15,7 @@ export interface IElectronAPI {
     gpu: Record<string, any>;
   }>;
   getAppVersion: () => Promise<string>;
+  getMachineId: () => string;
 }
 
 declare global {

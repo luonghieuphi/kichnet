@@ -15,40 +15,25 @@ export function SelectImageFormat({
   const t = useAtomValue(translationAtom);
 
   return (
-    <div className="flex flex-col gap-2">
-      <div className="flex flex-row gap-1">
-        <p className="text-sm font-medium">
-          {t("SETTINGS.IMAGE_FORMAT.TITLE")}
-        </p>
-        {/* <p className="badge-primary badge text-[10px] font-medium">
-          EXPERIMENTAL
-        </p> */}
-      </div>
-      <div className="flex flex-col gap-2">
-        {batchMode && <p className="text-xs text-base-content/80"></p>}
-        <div className="flex flex-wrap gap-2">
-          {/* PNG */}
+    <div className="flex w-full flex-col gap-2.5">
+      <p className="text-sm font-semibold text-base-content/85">
+        Định dạng Đầu ra
+      </p>
+      <div className="flex flex-row gap-2.5">
+        {["png", "jpg", "webp"].map((format) => (
           <button
-            className={`btn ${saveImageAs === "png" && "btn-primary"}`}
-            onClick={() => setExportType("png")}
+            key={format}
+            type="button"
+            onClick={() => setExportType(format)}
+            className={`flex-1 py-3 px-4 rounded-xl border text-sm font-bold transition-all duration-200 cursor-pointer text-center uppercase ${
+              saveImageAs === format
+                ? "bg-[#8b5cf6] border-[#8b5cf6] text-white shadow-lg shadow-[#8b5cf6]/20"
+                : "bg-base-200 border-base-content/10 text-base-content/60 hover:bg-base-300 hover:text-base-content/80"
+            }`}
           >
-            {t("SETTINGS.IMAGE_FORMAT.PNG")}
+            {format}
           </button>
-          {/* JPG */}
-          <button
-            className={`btn ${saveImageAs === "jpg" && "btn-primary"}`}
-            onClick={() => setExportType("jpg")}
-          >
-            {t("SETTINGS.IMAGE_FORMAT.JPG")}
-          </button>
-          {/* WEBP */}
-          <button
-            className={`btn ${saveImageAs === "webp" && "btn-primary"}`}
-            onClick={() => setExportType("webp")}
-          >
-            {t("SETTINGS.IMAGE_FORMAT.WEBP")}
-          </button>
-        </div>
+        ))}
       </div>
     </div>
   );

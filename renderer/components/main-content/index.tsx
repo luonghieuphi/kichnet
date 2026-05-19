@@ -25,6 +25,7 @@ import LensViewer from "./lens-view";
 import ImageViewer from "./image-viewer";
 import useTranslation from "../hooks/use-translation";
 import SliderView from "./slider-view";
+import TopBar from "../top-bar";
 
 type MainContentProps = {
   imagePath: string;
@@ -276,78 +277,82 @@ const MainContent = ({
     >
       <MacTitlebarDragRegion />
 
-      {progress.length > 0 &&
-        upscaledImagePath.length === 0 &&
-        upscaledBatchFolderPath.length === 0 && (
-          <ProgressBar
+      <TopBar />
+
+      {/* Main Workspace Card Container */}
+      <div className="flex-1 w-full mx-6 mb-6 mt-[5.5rem] bg-base-200/50 rounded-[28px] border border-base-content/5 flex flex-col items-center justify-center overflow-hidden relative">
+        {progress.length > 0 &&
+          upscaledImagePath.length === 0 &&
+          upscaledBatchFolderPath.length === 0 && (
+            <ProgressBar
+              batchMode={batchMode}
+              progress={progress}
+              doubleUpscaylCounter={doubleUpscaylCounter}
+              resetImagePaths={resetImagePaths}
+            />
+          )}
+
+        {/* DEFAULT PANE INFO */}
+        {showInformationCard && (
+          <InstructionsCard
+            version={version}
             batchMode={batchMode}
-            progress={progress}
-            doubleUpscaylCounter={doubleUpscaylCounter}
-            resetImagePaths={resetImagePaths}
+            selectImageHandler={selectImageHandler}
+            selectFolderHandler={selectFolderHandler}
           />
         )}
 
-      {/* DEFAULT PANE INFO */}
-      {showInformationCard && (
-        <InstructionsCard version={version} batchMode={batchMode} />
-      )}
-
-      <MoreOptionsDrawer
-        zoomAmount={zoomAmount}
-        setZoomAmount={setZoomAmount}
-        resetImagePaths={resetImagePaths}
-      />
-
-      {/* SHOW SELECTED IMAGE */}
-      {!batchMode && upscaledImagePath.length === 0 && imagePath.length > 0 && (
-        <ImageViewer imagePath={imagePath} setDimensions={setDimensions} />
-      )}
-
-      {/* BATCH UPSCALE SHOW SELECTED FOLDER */}
-      {batchMode &&
-        upscaledBatchFolderPath.length === 0 &&
-        batchFolderPath.length > 0 && (
-          <p className="select-none text-base-content">
-            <span className="font-bold">
-              {t("APP.PROGRESS.BATCH.SELECTED_FOLDER_TITLE")}
-            </span>{" "}
-            {batchFolderPath}
-          </p>
+        {/* SHOW SELECTED IMAGE */}
+        {!batchMode && upscaledImagePath.length === 0 && imagePath.length > 0 && (
+          <ImageViewer imagePath={imagePath} setDimensions={setDimensions} />
         )}
-      {/* BATCH UPSCALE DONE INFO */}
 
-      {batchMode && upscaledBatchFolderPath.length > 0 && (
-        <div className="z-50 flex flex-col items-center">
-          <p className="select-none py-4 font-bold text-base-content">
-            {t("APP.PROGRESS.BATCH.DONE_TITLE")}
-          </p>
-          <button
-            className="bg-gradient-blue btn btn-primary rounded-btn p-3 font-medium text-white/90 transition-colors"
-            onClick={openFolderHandler}
-          >
-            {t("APP.PROGRESS.BATCH.OPEN_UPSCAYLED_FOLDER_TITLE")}
-          </button>
-        </div>
-      )}
+        {/* BATCH UPSCALE SHOW SELECTED FOLDER */}
+        {batchMode &&
+          upscaledBatchFolderPath.length === 0 &&
+          batchFolderPath.length > 0 && (
+            <p className="select-none text-base-content">
+              <span className="font-bold">
+                {t("APP.PROGRESS.BATCH.SELECTED_FOLDER_TITLE")}
+              </span>{" "}
+              {batchFolderPath}
+            </p>
+          )}
+        {/* BATCH UPSCALE DONE INFO */}
 
-      {!batchMode && viewType === "lens" && upscaledImagePath && imagePath && (
-        <LensViewer
-          sanitizedImagePath={sanitizedImagePath}
-          sanitizedUpscaledImagePath={sanitizedUpscaledImagePath}
-        />
-      )}
+        {batchMode && upscaledBatchFolderPath.length > 0 && (
+          <div className="z-50 flex flex-col items-center">
+            <p className="select-none py-4 font-bold text-base-content">
+              {t("APP.PROGRESS.BATCH.DONE_TITLE")}
+            </p>
+            <button
+              className="bg-gradient-blue btn btn-primary rounded-btn p-3 font-medium text-white/90 transition-colors"
+              onClick={openFolderHandler}
+            >
+              {t("APP.PROGRESS.BATCH.OPEN_UPSCAYLED_FOLDER_TITLE")}
+            </button>
+          </div>
+        )}
 
-      {/* COMPARISON SLIDER */}
-      {!batchMode &&
-        viewType === "slider" &&
-        imagePath.length > 0 &&
-        upscaledImagePath.length > 0 && (
-          <SliderView
+        {!batchMode && viewType === "lens" && upscaledImagePath && imagePath && (
+          <LensViewer
             sanitizedImagePath={sanitizedImagePath}
             sanitizedUpscaledImagePath={sanitizedUpscaledImagePath}
-            zoomAmount={zoomAmount}
           />
         )}
+
+        {/* COMPARISON SLIDER */}
+        {!batchMode &&
+          viewType === "slider" &&
+          imagePath.length > 0 &&
+          upscaledImagePath.length > 0 && (
+            <SliderView
+              sanitizedImagePath={sanitizedImagePath}
+              sanitizedUpscaledImagePath={sanitizedUpscaledImagePath}
+              zoomAmount={zoomAmount}
+            />
+          )}
+      </div>
     </div>
   );
 };

@@ -13,7 +13,9 @@
   },
   "SETTINGS": {
     "TITLE": "การตั้งค่า",
-    "CHANGE_LANGUAGE": { "TITLE": "เปลี่ยนภาษา" },
+    "CHANGE_LANGUAGE": {
+      "TITLE": "เปลี่ยนภาษา"
+    },
     "IMAGE_COMPRESSION": {
       "TITLE": "การบีบอัดรูป",
       "DESCRIPTION": "การบีบอัด PNG จะไม่มีการสูญเสียข้อมูล ซึ่งอาจไม่ช่วยลดขนาดของไฟล์ได้มากนัก และการบีบอัดด้วยค่าที่สูงอาจส่งผลต่อประสิทธิภาพ ส่วนการบีบอัดด้วย JPG และ WebP จะเกิดการสูญเสียข้อมูล"
@@ -157,7 +159,8 @@
           "NAME": "คุณภาพสูง",
           "DESCRIPTION": "สำหรับรูปทุกประเภท โดยเน้นรายละเอียดที่สมจริงและพื้นผิวที่เรียบเนียน"
         }
-      }
+      },
+      "LABEL": "AI Model"
     },
     "DOUBLE_UPSCAYL": {
       "TITLE": "Upscayl 2 รอบ",
@@ -169,7 +172,10 @@
       "NOT_SELECTED": "ไม่ถูกเลือก",
       "DEFAULT_IMG_PATH": "ใช้ตามที่ตั้งรูปตามค่าพื้นฐาน",
       "DEFAULT_FOLDER_PATH": "ใช้ตามที่ตั้งโฟลเดอร์ตามค่าพื้นฐาน",
-      "BUTTON_TITLE": "กำหนดโฟลเดอร์ปลายทาง"
+      "BUTTON_TITLE": "กำหนดโฟลเดอร์ปลายทาง",
+      "LOCAL_WORKSPACE": "Local Workspace",
+      "DEFAULT_BADGE": "Default",
+      "CUSTOM_BADGE": "Custom"
     },
     "SCALE_SELECTION": {
       "TITLE": "ขั้นตอนที่ 4",
@@ -203,7 +209,9 @@
       "SELECT_IMAGE": "เลือกรูป",
       "SELECT_FOLDER_DESCRIPTION": "ตรวจสอบให้แน่ใจว่าในโฟลเดอร์ไม่มีสิ่งอื่นนอกจากรูป PNG, JPG, JPEG & WEBP",
       "SELECT_IMAGES_DESCRIPTION": "เลือกหรือลากรูป PNG, JPG, JPEG หรือ WEBP",
-      "PASTE_IMAGE_DESCRIPTION": "กด Ctrl+V หรือ ⌘+V เพื่อวางรูปจากคลิปบอร์ด"
+      "PASTE_IMAGE_DESCRIPTION": "กด Ctrl+V หรือ ⌘+V เพื่อวางรูปจากคลิปบอร์ด",
+      "INPUT_DATA_SETUP": "Input Data Setup",
+      "INPUT_DATA_DESCRIPTION": "Drag and drop an image file into this area or click to extract from local memory"
     },
     "PROGRESS": {
       "PROCESSING_TITLE": "กำลังประมวลผลรูป...",
@@ -222,7 +230,22 @@
     },
     "DIALOG_BOX": {
       "CLOSE": "ปิด"
-    }
+    },
+    "ACTIVATION": {
+      "TITLE": "LICENSE ACTIVATION",
+      "DESCRIPTION": "Please enter your activation code to start using the product. If you do not have an activation code, click the link below to get support.",
+      "INPUT_PLACEHOLDER": "Enter activation code (Example: PIXELUP-XXXXXX-XXXXXX)",
+      "BUTTON_TITLE": "Activate Application",
+      "SUPPORT_LINK": "No activation code? Get license at sharpix.me",
+      "SUCCESS": "License activated successfully! Thank you for your support.",
+      "ERROR": "Invalid or expired activation code. Please check again!",
+      "ERROR_DIFFERENT_MACHINE": "This activation code was created for a different computer, it cannot be used on this computer!",
+      "ERROR_EXPIRED": "This activation code has expired! Please contact the admin to renew.",
+      "ERROR_CLOCK_TAMPERED": "Unusual system clock detected. Please set your system time to the correct time!",
+      "MACHINE_ID_LABEL": "Your Machine ID (Send this to us to get your activation code):"
+    },
+    "SELECT_DIFFERENT_FOLDER": "Select another folder",
+    "SELECT_DIFFERENT_IMAGE": "Select another image"
   },
   "ERRORS": {
     "GPU_ERROR": {
@@ -309,5 +332,9 @@
       "TITLE": "คุณพร้อมแล้ว! 🎉",
       "DESCRIPTION": "คุณพร้อมที่จะเริ่มการขยายรูปด้วย Upscayl แล้ว!"
     }
-  }
+  },
+  "OVERVIEW": "Overview",
+  "AI_PARAMETERS": "AI Parameters",
+  "RESOLUTION_PARAMS": "Resolution Parameters",
+  "SCALE_LABEL": "Amplification Coefficient"
 }

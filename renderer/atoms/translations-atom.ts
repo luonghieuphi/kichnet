@@ -22,7 +22,7 @@ import { atomWithStorage } from "jotai/utils";
 type Translations = typeof en;
 type Locales = "ar" | "en" | "tr" | "ru" | "uk" | "ja" | "zh" | "es" | "fr" | "de" | "vi" | "pt" | "ptBR" | "id" | "caVAL" | "hu" | "pl";
 
-const translations: Record<Locales, Translations> = {
+const translations = {
   ar,
   en,
   tr,
@@ -40,7 +40,7 @@ const translations: Record<Locales, Translations> = {
   caVAL,
   hu,
   pl,
-};
+} as unknown as Record<Locales, Translations>;
 
 // Create a type for nested key paths
 type NestedKeyOf<Object> = Object extends object
@@ -70,7 +70,7 @@ const getNestedTranslation = (
 };
 
 // Atom to store the current locale
-export const localeAtom = atomWithStorage<Locales>("language", "en");
+export const localeAtom = atomWithStorage<Locales>("language", "vi");
 
 // Atom to get the translation function based on the current locale
 export const translationAtom = atom((get) => {

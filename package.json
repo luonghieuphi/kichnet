@@ -1,14 +1,14 @@
 {
-  "name": "upscayl",
+  "name": "pixel-up",
   "private": true,
-  "version": "2.15.0",
-  "productName": "Upscayl",
+  "version": "1.0.0",
+  "productName": "Pixel UP",
   "author": {
     "name": "Nayam Amarshe",
     "email": "nayam.emikx@aleeas.com",
     "url": "https://github.com/NayamAmarshe"
   },
-  "homepage": "https://github.com/TGS963/upscayl",
+  "homepage": "https://github.com/luonghieuphi/kichnet",
   "contributors": [
     {
       "name": "Nayam Amarshe",
@@ -23,7 +23,7 @@
   ],
   "email": "nayam.emikx@aleeas.com",
   "license": "AGPL-3.0",
-  "description": "Upscayl - Free and Open Source AI Image Upscaler",
+  "description": "Sharpix AI - AI Image Upscaler",
   "keywords": [
     "AI",
     "Upscaler",
@@ -71,8 +71,8 @@
     "validate-schema": "node scripts/validate-schema.js"
   },
   "build": {
-    "productName": "Upscayl",
-    "appId": "org.upscayl.Upscayl",
+    "productName": "Pixel UP",
+    "appId": "org.pixelup.PixelUP",
     "artifactName": "${name}-${version}-${os}.${ext}",
     "afterSign": "./notarize.js",
     "asar": true,
@@ -180,7 +180,7 @@
       "icon": "resources/icons/"
     },
     "win": {
-      "publisherName": "Upscayl Team",
+      "publisherName": "Pixel UP Team",
       "target": [
         "nsis",
         "zip"
@@ -199,8 +199,8 @@
     ],
     "publish": {
       "provider": "github",
-      "owner": "upscayl",
-      "repo": "upscayl"
+      "owner": "luonghieuphi",
+      "repo": "kichnet"
     }
   },
   "devDependencies": {

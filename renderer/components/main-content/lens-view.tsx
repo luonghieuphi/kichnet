@@ -100,7 +100,7 @@ const LensViewer = ({
   );
 
   return (
-    <div className="group relative flex h-full flex-col items-center">
+    <div className="group relative flex h-full w-full flex-col items-center justify-center">
       {/* Main image container */}
       <div
         className="relative h-full w-full cursor-crosshair"

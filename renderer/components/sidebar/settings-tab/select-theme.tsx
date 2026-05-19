@@ -1,61 +1,49 @@
-import { translationAtom } from "@/atoms/translations-atom";
-import { useAtomValue } from "jotai";
-import React, { useEffect } from "react";
-import { themeChange } from "theme-change";
+import React, { useEffect, useState } from "react";
 
 const SelectTheme = ({ hideLabel }: { hideLabel?: boolean }) => {
-  const availableThemes = [
-    { label: "upscayl", value: "upscayl" },
-    { label: "light", value: "light" },
-    { label: "dark", value: "dark" },
-    { label: "cupcake", value: "cupcake" },
-    { label: "bumblebee", value: "bumblebee" },
-    { label: "emerald", value: "emerald" },
-    { label: "corporate", value: "corporate" },
-    { label: "synthwave", value: "synthwave" },
-    { label: "retro", value: "retro" },
-    { label: "cyberpunk", value: "cyberpunk" },
-    { label: "valentine", value: "valentine" },
-    { label: "halloween", value: "halloween" },
-    { label: "garden", value: "garden" },
-    { label: "forest", value: "forest" },
-    { label: "aqua", value: "aqua" },
-    { label: "lofi", value: "lofi" },
-    { label: "pastel", value: "pastel" },
-    { label: "fantasy", value: "fantasy" },
-    { label: "wireframe", value: "wireframe" },
-    { label: "black", value: "black" },
-    { label: "luxury", value: "luxury" },
-    { label: "dracula", value: "dracula" },
-    { label: "cmyk", value: "cmyk" },
-    { label: "autumn", value: "autumn" },
-    { label: "business", value: "business" },
-    { label: "acid", value: "acid" },
-    { label: "lemonade", value: "lemonade" },
-    { label: "night", value: "night" },
-    { label: "coffee", value: "coffee" },
-    { label: "winter", value: "winter" },
-  ];
-  const t = useAtomValue(translationAtom);
+  const [activeTheme, setActiveTheme] = useState("upscayl");
 
   useEffect(() => {
-    themeChange(false);
+    const savedTheme = localStorage.getItem("theme") || "upscayl";
+    setActiveTheme(savedTheme);
+    document.documentElement.setAttribute("data-theme", savedTheme);
   }, []);
 
+  const handleThemeChange = (theme: string) => {
+    setActiveTheme(theme);
+    localStorage.setItem("theme", theme);
+    document.documentElement.setAttribute("data-theme", theme);
+  };
+
   return (
-    <div className="flex w-full flex-col gap-2">
+    <div className="flex w-full flex-col gap-2.5">
       {!hideLabel && (
-        <p className="text-sm font-medium">{t("SETTINGS.THEME.TITLE")}</p>
+        <p className="text-sm font-semibold text-base-content/85">Giao diện</p>
       )}
-      <select data-choose-theme className="select select-primary">
-        {availableThemes.map((theme) => {
-          return (
-            <option value={theme.value} key={theme.value}>
-              {theme.label.toLocaleUpperCase()}
-            </option>
-          );
-        })}
-      </select>
+      <div className="flex flex-row gap-2.5">
+        <button
+          type="button"
+          onClick={() => handleThemeChange("upscayl")}
+          className={`flex-1 py-3 px-4 rounded-xl border text-sm font-bold transition-all duration-200 cursor-pointer text-center ${
+            activeTheme === "upscayl"
+              ? "bg-[#8b5cf6] border-[#8b5cf6] text-white shadow-lg shadow-[#8b5cf6]/20"
+              : "bg-base-200 border-base-content/10 text-base-content/60 hover:bg-base-300 hover:text-base-content/80"
+          }`}
+        >
+          Tối
+        </button>
+        <button
+          type="button"
+          onClick={() => handleThemeChange("light")}
+          className={`flex-1 py-3 px-4 rounded-xl border text-sm font-bold transition-all duration-200 cursor-pointer text-center ${
+            activeTheme === "light"
+              ? "bg-[#8b5cf6] border-[#8b5cf6] text-white shadow-lg shadow-[#8b5cf6]/20"
+              : "bg-base-200 border-base-content/10 text-base-content/60 hover:bg-base-300 hover:text-base-content/80"
+          }`}
+        >
+          Sáng
+        </button>
+      </div>
     </div>
   );
 };

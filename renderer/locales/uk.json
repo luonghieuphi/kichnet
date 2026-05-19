@@ -13,7 +13,9 @@
   },
   "SETTINGS": {
     "TITLE": "Налаштування",
-    "CHANGE_LANGUAGE": { "TITLE": "Змінити мову" },
+    "CHANGE_LANGUAGE": {
+      "TITLE": "Змінити мову"
+    },
     "IMAGE_COMPRESSION": {
       "TITLE": "Стиснення зображень",
       "DESCRIPTION": "Стиснення PNG є безвтратним, тому воно може не значно зменшити розмір файлу, а вищі значення стиснення можуть вплинути на продуктивність. Стиснення JPG та WebP є втратним."
@@ -157,7 +159,8 @@
           "NAME": "Висока точність",
           "DESCRIPTION": "Для всіх видів зображень з акцентом на реалістичних деталях та плавних текстурах."
         }
-      }
+      },
+      "LABEL": "AI Model"
     },
     "DOUBLE_UPSCAYL": {
       "TITLE": "Подвійний Upscayl",
@@ -169,7 +172,10 @@
       "NOT_SELECTED": "Не обрано",
       "DEFAULT_IMG_PATH": "За замовчуванням - шлях до зображення",
       "DEFAULT_FOLDER_PATH": "За замовчуванням - шлях до теки",
-      "BUTTON_TITLE": "Обрати теку виводу"
+      "BUTTON_TITLE": "Обрати теку виводу",
+      "LOCAL_WORKSPACE": "Local Workspace",
+      "DEFAULT_BADGE": "Default",
+      "CUSTOM_BADGE": "Custom"
     },
     "SCALE_SELECTION": {
       "TITLE": "Крок 4",
@@ -203,7 +209,9 @@
       "SELECT_IMAGE": "Оберіть зображення",
       "SELECT_FOLDER_DESCRIPTION": "Переконайтеся, що тека містить лише зображення PNG, JPG, JPEG та WEBP.",
       "SELECT_IMAGES_DESCRIPTION": "Оберіть або перетягніть зображення PNG, JPG, JPEG чи WEBP.",
-      "PASTE_IMAGE_DESCRIPTION": "Натисніть Ctrl+V або ⌘+V для вставки зображення з буфера обміну"
+      "PASTE_IMAGE_DESCRIPTION": "Натисніть Ctrl+V або ⌘+V для вставки зображення з буфера обміну",
+      "INPUT_DATA_SETUP": "Input Data Setup",
+      "INPUT_DATA_DESCRIPTION": "Drag and drop an image file into this area or click to extract from local memory"
     },
     "PROGRESS": {
       "PROCESSING_TITLE": "Обробка зображення...",
@@ -222,7 +230,22 @@
     },
     "DIALOG_BOX": {
       "CLOSE": "Закрити"
-    }
+    },
+    "ACTIVATION": {
+      "TITLE": "LICENSE ACTIVATION",
+      "DESCRIPTION": "Please enter your activation code to start using the product. If you do not have an activation code, click the link below to get support.",
+      "INPUT_PLACEHOLDER": "Enter activation code (Example: PIXELUP-XXXXXX-XXXXXX)",
+      "BUTTON_TITLE": "Activate Application",
+      "SUPPORT_LINK": "No activation code? Get license at sharpix.me",
+      "SUCCESS": "License activated successfully! Thank you for your support.",
+      "ERROR": "Invalid or expired activation code. Please check again!",
+      "ERROR_DIFFERENT_MACHINE": "This activation code was created for a different computer, it cannot be used on this computer!",
+      "ERROR_EXPIRED": "This activation code has expired! Please contact the admin to renew.",
+      "ERROR_CLOCK_TAMPERED": "Unusual system clock detected. Please set your system time to the correct time!",
+      "MACHINE_ID_LABEL": "Your Machine ID (Send this to us to get your activation code):"
+    },
+    "SELECT_DIFFERENT_FOLDER": "Select another folder",
+    "SELECT_DIFFERENT_IMAGE": "Select another image"
   },
   "ERRORS": {
     "GPU_ERROR": {
@@ -277,7 +300,7 @@
       "TITLE": "Попередження про метадані",
       "DESCRIPTION": "На деяких системах метадані можуть не відображатися в форматах, відмінних від JPG. За потреби використовуйте спеціальні інструменти для перегляду метаданих."
     }
-  },    
+  },
   "UPSCAYL_CLOUD": {
     "COMING_SOON": "Скоро!",
     "CATCHY_PHRASE_1": "Більше жодних помилок, проблем з обладнанням, компромісів з якістю чи довгого очікування!",
@@ -309,5 +332,9 @@
       "TITLE": "Все готово! 🎉",
       "DESCRIPTION": "Ви готові почати покращувати зображення з Upscayl!"
     }
-  }
+  },
+  "OVERVIEW": "Overview",
+  "AI_PARAMETERS": "AI Parameters",
+  "RESOLUTION_PARAMS": "Resolution Parameters",
+  "SCALE_LABEL": "Amplification Coefficient"
 }

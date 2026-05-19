@@ -134,6 +134,13 @@
 }
 
 @layer utilities {
+  .scrollbar-none::-webkit-scrollbar {
+    display: none !important;
+  }
+  .scrollbar-none {
+    -ms-overflow-style: none !important;
+    scrollbar-width: none !important;
+  }
   .animate {
     @apply transition-all duration-300 ease-in-out;
   }
@@ -303,4 +310,65 @@
     transform: perspective(120px) rotateX(-360deg) rotateY(-179.9deg);
     -webkit-transform: perspective(120px) rotateX(-360deg) rotateY(-359.9deg);
   }
+}
+
+/* Force hide all scrollbars on any element with .scrollbar-none */
+.scrollbar-none::-webkit-scrollbar {
+  display: none !important;
+  width: 0 !important;
+  height: 0 !important;
+}
+.scrollbar-none {
+  -ms-overflow-style: none !important;
+  scrollbar-width: none !important;
+}
+
+/* Custom slider styling matching reference image */
+input[type="range"].custom-slider {
+  -webkit-appearance: none;
+  width: 100%;
+  height: 4px;
+  background: linear-gradient(90deg, #00c6ff 0%, #0072ff 50%, #8b5cf6 100%) !important;
+  border-radius: 9999px;
+  outline: none;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  cursor: pointer;
+}
+
+/* Chrome, Safari, Opera, and Edge */
+input[type="range"].custom-slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: radial-gradient(circle, #8b5cf6 25%, #ffffff 25%);
+  border: 3px solid #8b5cf6;
+  cursor: pointer;
+  box-shadow: 0 0 8px rgba(139, 92, 246, 0.4);
+  transition: all 0.15s ease-in-out;
+  margin-top: 0px; /* Center thumb on track */
+}
+
+input[type="range"].custom-slider::-webkit-slider-thumb:hover {
+  transform: scale(1.15);
+  box-shadow: 0 0 12px rgba(139, 92, 246, 0.6);
+}
+
+/* Firefox */
+input[type="range"].custom-slider::-moz-range-thumb {
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: radial-gradient(circle, #8b5cf6 25%, #ffffff 25%);
+  border: 3px solid #8b5cf6;
+  cursor: pointer;
+  box-shadow: 0 0 8px rgba(139, 92, 246, 0.4);
+  transition: all 0.15s ease-in-out;
+}
+
+input[type="range"].custom-slider::-moz-range-thumb:hover {
+  transform: scale(1.15);
+  box-shadow: 0 0 12px rgba(139, 92, 246, 0.6);
 }

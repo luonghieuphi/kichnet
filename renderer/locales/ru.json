@@ -13,7 +13,9 @@
   },
   "SETTINGS": {
     "TITLE": "Настройки",
-    "CHANGE_LANGUAGE": { "TITLE": "Сменить язык" },
+    "CHANGE_LANGUAGE": {
+      "TITLE": "Сменить язык"
+    },
     "IMAGE_COMPRESSION": {
       "TITLE": "Сжатие изображения",
       "DESCRIPTION": "Сжатие PNG происходит без потерь, поэтому размер файла может уменьшиться незначительно, а более высокие значения сжатия могут повлиять на производительность. Сжатие JPG и WebP совершается с потерями."
@@ -22,7 +24,7 @@
       "TITLE": "ДОБАВИТЬ ПОЛЬЗОВАТЕЛЬСКИЕ МОДЕЛИ",
       "BUTTON_FOLDER": "Выбрать папку",
       "DESCRIPTION": "Вы можете легко добавить свои модели. Подробности в:",
-	  "LINK_TITLE": "Хранилище пользовательских моделей"
+      "LINK_TITLE": "Хранилище пользовательских моделей"
     },
     "CUSTOM_INPUT_RESOLUTION": {
       "TITLE": "ПОЛЬЗОВАТЕЛЬСКАЯ ШИРИНА ВЫХОДА",
@@ -157,7 +159,8 @@
           "NAME": "Высокая точность",
           "DESCRIPTION": "Для всех видов изображений с акцентом на реалистичные детали и гладкие текстуры."
         }
-      }
+      },
+      "LABEL": "AI Model"
     },
     "DOUBLE_UPSCAYL": {
       "TITLE": "Двойное увеличение",
@@ -169,7 +172,10 @@
       "NOT_SELECTED": "Не выбрано",
       "DEFAULT_IMG_PATH": "Стандартный путь изображения",
       "DEFAULT_FOLDER_PATH": "Стандартный путь папки",
-      "BUTTON_TITLE": "Задать папку вывода"
+      "BUTTON_TITLE": "Задать папку вывода",
+      "LOCAL_WORKSPACE": "Local Workspace",
+      "DEFAULT_BADGE": "Default",
+      "CUSTOM_BADGE": "Custom"
     },
     "SCALE_SELECTION": {
       "TITLE": "Шаг 4",
@@ -203,7 +209,9 @@
       "SELECT_IMAGE": "Выберите изображение для увеличения",
       "SELECT_FOLDER_DESCRIPTION": "Убедитесь, что в папке нет ничего, кроме изображений PNG, JPG, JPEG и WEBP.",
       "SELECT_IMAGES_DESCRIPTION": "Выберите или перетащите изображение в формате PNG, JPG, JPEG или WEBP.",
-      "PASTE_IMAGE_DESCRIPTION": "Нажмите Ctrl+V или ⌘+V, чтобы вставить изображение из буфера обмена"
+      "PASTE_IMAGE_DESCRIPTION": "Нажмите Ctrl+V или ⌘+V, чтобы вставить изображение из буфера обмена",
+      "INPUT_DATA_SETUP": "Input Data Setup",
+      "INPUT_DATA_DESCRIPTION": "Drag and drop an image file into this area or click to extract from local memory"
     },
     "PROGRESS": {
       "PROCESSING_TITLE": "Обработка изображения...",
@@ -222,7 +230,22 @@
     },
     "DIALOG_BOX": {
       "CLOSE": "Закрыть"
-    }
+    },
+    "ACTIVATION": {
+      "TITLE": "LICENSE ACTIVATION",
+      "DESCRIPTION": "Please enter your activation code to start using the product. If you do not have an activation code, click the link below to get support.",
+      "INPUT_PLACEHOLDER": "Enter activation code (Example: PIXELUP-XXXXXX-XXXXXX)",
+      "BUTTON_TITLE": "Activate Application",
+      "SUPPORT_LINK": "No activation code? Get license at sharpix.me",
+      "SUCCESS": "License activated successfully! Thank you for your support.",
+      "ERROR": "Invalid or expired activation code. Please check again!",
+      "ERROR_DIFFERENT_MACHINE": "This activation code was created for a different computer, it cannot be used on this computer!",
+      "ERROR_EXPIRED": "This activation code has expired! Please contact the admin to renew.",
+      "ERROR_CLOCK_TAMPERED": "Unusual system clock detected. Please set your system time to the correct time!",
+      "MACHINE_ID_LABEL": "Your Machine ID (Send this to us to get your activation code):"
+    },
+    "SELECT_DIFFERENT_FOLDER": "Select another folder",
+    "SELECT_DIFFERENT_IMAGE": "Select another image"
   },
   "ERRORS": {
     "GPU_ERROR": {
@@ -277,7 +300,7 @@
       "TITLE": "Предупреждение о метаданных",
       "DESCRIPTION": "В некоторых системах метаданные могут не отображаться в форматах, отличных от JPG. При необходимости используйте специальные инструменты для просмотра метаданных."
     }
-  },   
+  },
   "UPSCAYL_CLOUD": {
     "COMING_SOON": "Скоро будет доступно!",
     "CATCHY_PHRASE_1": "Больше никаких ошибок, проблем с оборудованием, компромиссов в качестве или долгих загрузок!",
@@ -309,5 +332,9 @@
       "TITLE": "Все готово! 🎉",
       "DESCRIPTION": "Теперь вы готовы начать увеличивать изображения с помощью Upscayl!"
     }
-  }
+  },
+  "OVERVIEW": "Overview",
+  "AI_PARAMETERS": "AI Parameters",
+  "RESOLUTION_PARAMS": "Resolution Parameters",
+  "SCALE_LABEL": "Amplification Coefficient"
 }

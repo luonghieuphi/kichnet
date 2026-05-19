@@ -13,7 +13,9 @@
   },
   "SETTINGS": {
     "TITLE": "Einstellungen",
-    "CHANGE_LANGUAGE": { "TITLE": "Sprache ändern" },
+    "CHANGE_LANGUAGE": {
+      "TITLE": "Sprache ändern"
+    },
     "IMAGE_COMPRESSION": {
       "TITLE": "Bildkompression",
       "DESCRIPTION": "PNG-Kompression ist verlustfrei, daher reduziert sie die Dateigröße möglicherweise nicht signifikant und höhere Komprimierungswerte können die Leistung beeinträchtigen. JPG- und WebP-Kompression sind verlustbehaftet."
@@ -157,7 +159,8 @@
           "NAME": "High Fidelity",
           "DESCRIPTION": "Für alle Arten von Bildern mit Fokus auf realistische Details und glatte Texturen."
         }
-      }
+      },
+      "LABEL": "AI Model"
     },
     "DOUBLE_UPSCAYL": {
       "TITLE": "Doppel-Upscayl",
@@ -169,7 +172,10 @@
       "NOT_SELECTED": "Nicht ausgewählt",
       "DEFAULT_IMG_PATH": "Standard ist der Pfad des Bildes",
       "DEFAULT_FOLDER_PATH": "Standard ist der Ordnerpfad",
-      "BUTTON_TITLE": "Ausgabeordner festlegen"
+      "BUTTON_TITLE": "Ausgabeordner festlegen",
+      "LOCAL_WORKSPACE": "Local Workspace",
+      "DEFAULT_BADGE": "Default",
+      "CUSTOM_BADGE": "Custom"
     },
     "SCALE_SELECTION": {
       "TITLE": "Schritt 4",
@@ -203,7 +209,9 @@
       "SELECT_IMAGE": "Bild auswählen",
       "SELECT_FOLDER_DESCRIPTION": "Stelle sicher, dass der Ordner nur PNG-, JPG-, JPEG- und WEBP-Bilder enthält.",
       "SELECT_IMAGES_DESCRIPTION": "Wähle oder ziehe und platziere ein PNG-, JPG-, JPEG- oder WEBP-Bild.",
-      "PASTE_IMAGE_DESCRIPTION": "Drücke Strg+V oder ⌘+V, um ein Bild aus der Zwischenablage einzufügen"
+      "PASTE_IMAGE_DESCRIPTION": "Drücke Strg+V oder ⌘+V, um ein Bild aus der Zwischenablage einzufügen",
+      "INPUT_DATA_SETUP": "Input Data Setup",
+      "INPUT_DATA_DESCRIPTION": "Drag and drop an image file into this area or click to extract from local memory"
     },
     "PROGRESS": {
       "PROCESSING_TITLE": "Bild wird verarbeitet...",
@@ -222,7 +230,22 @@
     },
     "DIALOG_BOX": {
       "CLOSE": "Schließen"
-    }
+    },
+    "ACTIVATION": {
+      "TITLE": "LICENSE ACTIVATION",
+      "DESCRIPTION": "Please enter your activation code to start using the product. If you do not have an activation code, click the link below to get support.",
+      "INPUT_PLACEHOLDER": "Enter activation code (Example: PIXELUP-XXXXXX-XXXXXX)",
+      "BUTTON_TITLE": "Activate Application",
+      "SUPPORT_LINK": "No activation code? Get license at sharpix.me",
+      "SUCCESS": "License activated successfully! Thank you for your support.",
+      "ERROR": "Invalid or expired activation code. Please check again!",
+      "ERROR_DIFFERENT_MACHINE": "This activation code was created for a different computer, it cannot be used on this computer!",
+      "ERROR_EXPIRED": "This activation code has expired! Please contact the admin to renew.",
+      "ERROR_CLOCK_TAMPERED": "Unusual system clock detected. Please set your system time to the correct time!",
+      "MACHINE_ID_LABEL": "Your Machine ID (Send this to us to get your activation code):"
+    },
+    "SELECT_DIFFERENT_FOLDER": "Select another folder",
+    "SELECT_DIFFERENT_IMAGE": "Select another image"
   },
   "ERRORS": {
     "GPU_ERROR": {
@@ -277,7 +300,7 @@
       "TITLE": "Metadaten-Warnung",
       "DESCRIPTION": "Auf einigen Systemen sind die Metadaten in anderen Formaten als JPG möglicherweise nicht sichtbar. Verwende gegebenenfalls spezielle Tools zum Anzeigen der Metadaten."
     }
-  },  
+  },
   "UPSCAYL_CLOUD": {
     "COMING_SOON": "Kommt bald!",
     "CATCHY_PHRASE_1": "Keine Fehler mehr, Hardwareprobleme, Qualitätseinbußen oder lange Ladezeiten!",
@@ -309,5 +332,9 @@
       "TITLE": "Du bist startklar! 🎉",
       "DESCRIPTION": "Jetzt kannst du Bilder mit Upscayl upscaylen!"
     }
-  }
+  },
+  "OVERVIEW": "Overview",
+  "AI_PARAMETERS": "AI Parameters",
+  "RESOLUTION_PARAMS": "Resolution Parameters",
+  "SCALE_LABEL": "Amplification Coefficient"
 }

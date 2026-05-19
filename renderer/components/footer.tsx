@@ -18,26 +18,7 @@ function Footer() {
           {t("FOOTER.NEWS_TITLE")}
         </button>
       )}
-      <p>
-        {t("FOOTER.COPYRIGHT")} {new Date().getFullYear()} -{" "}
-        <a
-          className="font-bold"
-          href="https://github.com/upscayl/upscayl"
-          target="_blank"
-        >
-          {t("TITLE")}
-        </a>
-      </p>
-      <p>
-        {t("FOOTER.TITLE")}
-        <a
-          href="https://github.com/upscayl"
-          className="font-bold"
-          target="_blank"
-        >
-          {t("FOOTER.LINK_TITLE")}
-        </a>
-      </p>
+
     </div>
   );
 }

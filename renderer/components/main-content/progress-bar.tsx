@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
-import UpscaylSVGLogo from "@/components/icons/upscayl-logo-svg";
 import { useAtomValue } from "jotai";
 import { translationAtom } from "@/atoms/translations-atom";
+import { Sparkles } from "lucide-react";
 import { ELECTRON_COMMANDS } from "@common/electron-commands";
 import useLogger from "../hooks/use-logger";
 
@@ -51,7 +51,12 @@ function ProgressBar({
   return (
     <div className="absolute z-50 flex h-full w-full flex-col items-center justify-center bg-base-300/50 backdrop-blur-lg">
       <div className="flex flex-col items-center gap-2 rounded-btn bg-base-100/50 p-4 backdrop-blur-lg">
-        <UpscaylSVGLogo className="spinner h-12 w-12" />
+        <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-primary via-primary/80 to-accent flex items-center justify-center relative overflow-hidden shadow-lg shadow-secondary/15 animate-pulse">
+          {/* Lớp texture tạo họa tiết khối */}
+          <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-30 mix-blend-overlay"></div>
+          {/* Icon lấp lánh */}
+          <Sparkles className="text-white w-6 h-6 relative z-10" strokeWidth={1.5} />
+        </div>
 
         <p className="rounded-full px-2 pb-2 font-bold">
           {batchMode &&

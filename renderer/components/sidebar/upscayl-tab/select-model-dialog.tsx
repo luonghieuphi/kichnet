@@ -10,7 +10,7 @@ import {
   DialogTrigger,
 } from "@/components/ui/dialog";
 import { ScrollArea } from "@/components/ui/scroll-area";
-import { Maximize2, SwatchBookIcon, X } from "lucide-react";
+import { Maximize2, SwatchBookIcon, X, ChevronDown } from "lucide-react";
 import { ModelId, MODELS } from "@common/models-list";
 import { useAtom, useAtomValue } from "jotai";
 import { selectedModelIdAtom } from "@/atoms/user-settings-atom";
@@ -46,13 +46,20 @@ const SelectModelDialog = () => {
     <div className="flex flex-col gap-4">
       <Dialog open={open} onOpenChange={setOpen}>
         <DialogTrigger asChild>
-          <button className="btn btn-primary justify-start border-border">
-            <SwatchBookIcon className="mr-2 h-5 w-5" />
-            {selectedModelId in MODELS
-              ? t(
-                  `APP.MODEL_SELECTION.MODELS.${MODELS[selectedModelId]?.id}.NAME` as any,
-                )
-              : selectedModelId}
+          <button className="flex items-center justify-between w-full rounded-[14px] bg-base-200 border border-base-content/10 py-3.5 px-4 text-left transition-all hover:bg-base-300 active:scale-[0.98] cursor-pointer group select-none focus:outline-none">
+            <div className="flex flex-col gap-0.5">
+              <span className="text-[10px] font-bold text-base-content/40 uppercase tracking-wider">
+                {t("APP.MODEL_SELECTION.LABEL")}
+              </span>
+              <span className="text-sm font-bold text-base-content leading-tight">
+                {selectedModelId in MODELS
+                  ? t(
+                      `APP.MODEL_SELECTION.MODELS.${MODELS[selectedModelId]?.id}.NAME` as any,
+                    )
+                  : selectedModelId}
+              </span>
+            </div>
+            <ChevronDown className="h-4 w-4 text-base-content/40 transition-transform group-hover:translate-y-0.5" />
           </button>
         </DialogTrigger>
         <DialogContent className="z-50 sm:max-w-lg">

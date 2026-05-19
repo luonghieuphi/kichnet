@@ -107,13 +107,13 @@ module.exports = {
     themes: [
       {
         upscayl: {
-          primary: "#334155",
-          secondary: "#4f46e5",
-          accent: "#6d28d9",
-          neutral: "#475569",
-          "base-100": "#1e293b",
-          "base-200": "#0f172a",
-          "base-300": "#020617",
+          primary: "#1E88FF",
+          secondary: "#22D3EE",
+          accent: "#22D3EE",
+          neutral: "#0F172A",
+          "base-100": "#041529",
+          "base-200": "#0A2240",
+          "base-300": "#020C1B",
           "--rounded-btn": "2rem", // border radius rounded-btn utility class, used in buttons and similar element
           "--rounded-badge": "2rem", // border radius rounded-badge utility class, used in badges and similar
           "--animation-btn": "0.5s", // duration of animation when you click on button
@@ -124,8 +124,26 @@ module.exports = {
           "--tab-border": "1px", // border width of tabs
           "--tab-radius": "0.5rem", // border radius of tabs
         },
+        light: {
+          primary: "#1E88FF",
+          secondary: "#22D3EE",
+          accent: "#22D3EE",
+          neutral: "#F1F5F9",
+          "base-100": "#FFFFFF",
+          "base-200": "#F1F5F9",
+          "base-300": "#E2E8F0",
+          "base-content": "#0F172A",
+          "--rounded-btn": "2rem",
+          "--rounded-badge": "2rem",
+          "--animation-btn": "0.5s",
+          "--animation-input": "0.5s",
+          "--btn-text-case": "uppercase",
+          "--btn-focus-scale": "0.95",
+          "--border-btn": "1px",
+          "--tab-border": "1px",
+          "--tab-radius": "0.5rem",
+        },
       },
-      "light",
       "dark",
       "cupcake",
       "bumblebee",

@@ -140,7 +140,6 @@
           "DESCRIPTION": "Adequat per a la majoria de les imatges. Augment de velocitat alta amb pèrdua de qualitat mínima."
         },
         "remacri-4x": {
-          "id": "remacri-4x",
           "NAME": "Remacri (No comercial)",
           "DESCRIPTION": "Per a imatges naturals. Afig nitidesa i detall. Ús no comercial."
         },
@@ -160,7 +159,8 @@
           "NAME": "Alta fidelitat",
           "DESCRIPTION": "Per a tota mena d'imatges amb un enfocament en detalls realistes i textures suaus."
         }
-      }
+      },
+      "LABEL": "AI Model"
     },
     "DOUBLE_UPSCAYL": {
       "TITLE": "Doble Upscayl",
@@ -172,7 +172,10 @@
       "NOT_SELECTED": "No seleccionat",
       "DEFAULT_IMG_PATH": "Ruta predeterminada de la imatge",
       "DEFAULT_FOLDER_PATH": "Ruta predeterminada de la carpeta",
-      "BUTTON_TITLE": "Establir carpeta d'eixida"
+      "BUTTON_TITLE": "Establir carpeta d'eixida",
+      "LOCAL_WORKSPACE": "Local Workspace",
+      "DEFAULT_BADGE": "Default",
+      "CUSTOM_BADGE": "Custom"
     },
     "SCALE_SELECTION": {
       "TITLE": "Pas 4",
@@ -206,7 +209,9 @@
       "SELECT_IMAGE": "Seleccioneu una imatge",
       "SELECT_FOLDER_DESCRIPTION": "Assegureu-vos que la carpeta no continga res excepte imatges PNG, JPG, JPEG i WEBP.",
       "SELECT_IMAGES_DESCRIPTION": "Seleccioneu o arrossegueu i solteu una imatge PNG, JPG, JPEG o WEBP.",
-      "PASTE_IMAGE_DESCRIPTION": "Pressioneu Ctrl+V o ⌘+V per a apegar la imatge des del porta-retalls"
+      "PASTE_IMAGE_DESCRIPTION": "Pressioneu Ctrl+V o ⌘+V per a apegar la imatge des del porta-retalls",
+      "INPUT_DATA_SETUP": "Input Data Setup",
+      "INPUT_DATA_DESCRIPTION": "Drag and drop an image file into this area or click to extract from local memory"
     },
     "PROGRESS": {
       "PROCESSING_TITLE": "S'està processant la imatge...",
@@ -225,7 +230,22 @@
     },
     "DIALOG_BOX": {
       "CLOSE": "Tanca"
-    }
+    },
+    "ACTIVATION": {
+      "TITLE": "LICENSE ACTIVATION",
+      "DESCRIPTION": "Please enter your activation code to start using the product. If you do not have an activation code, click the link below to get support.",
+      "INPUT_PLACEHOLDER": "Enter activation code (Example: PIXELUP-XXXXXX-XXXXXX)",
+      "BUTTON_TITLE": "Activate Application",
+      "SUPPORT_LINK": "No activation code? Get license at sharpix.me",
+      "SUCCESS": "License activated successfully! Thank you for your support.",
+      "ERROR": "Invalid or expired activation code. Please check again!",
+      "ERROR_DIFFERENT_MACHINE": "This activation code was created for a different computer, it cannot be used on this computer!",
+      "ERROR_EXPIRED": "This activation code has expired! Please contact the admin to renew.",
+      "ERROR_CLOCK_TAMPERED": "Unusual system clock detected. Please set your system time to the correct time!",
+      "MACHINE_ID_LABEL": "Your Machine ID (Send this to us to get your activation code):"
+    },
+    "SELECT_DIFFERENT_FOLDER": "Select another folder",
+    "SELECT_DIFFERENT_IMAGE": "Select another image"
   },
   "ERRORS": {
     "GPU_ERROR": {
@@ -312,5 +332,9 @@
       "TITLE": "Tot llest! 🎉",
       "DESCRIPTION": "Esteu llestos per a començar a augmentar imatges amb Upscayl!"
     }
-  }
+  },
+  "OVERVIEW": "Overview",
+  "AI_PARAMETERS": "AI Parameters",
+  "RESOLUTION_PARAMS": "Resolution Parameters",
+  "SCALE_LABEL": "Amplification Coefficient"
 }

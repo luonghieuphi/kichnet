@@ -13,7 +13,9 @@
   },
   "SETTINGS": {
     "TITLE": "Ajustes",
-    "CHANGE_LANGUAGE": { "TITLE": "Cambiar idioma" },
+    "CHANGE_LANGUAGE": {
+      "TITLE": "Cambiar idioma"
+    },
     "IMAGE_COMPRESSION": {
       "TITLE": "Compresión de imagen",
       "DESCRIPTION": "La compresión PNG es sin pérdida, por lo que puede que no reduzca el tamaño del archivo significativamente y los valores de compresión más altos podrían afectar el rendimiento. La compresión JPG y WebP es con pérdida."
@@ -138,7 +140,6 @@
           "DESCRIPTION": "Adecuado para la mayoría de las imágenes. Aumento de velocidad alta con mínima pérdida de calidad."
         },
         "remacri-4x": {
-          "id": "remacri-4x",
           "NAME": "Remacri (No Comercial)",
           "DESCRIPTION": "Para imágenes naturales. Añade nitidez y detalle. No uso comercial."
         },
@@ -158,7 +159,8 @@
           "NAME": "Alta Fidelidad",
           "DESCRIPTION": "Para todo tipo de imágenes con un enfoque en detalles realistas y texturas suaves."
         }
-      }
+      },
+      "LABEL": "AI Model"
     },
     "DOUBLE_UPSCAYL": {
       "TITLE": "Doble Upscayl",
@@ -170,7 +172,10 @@
       "NOT_SELECTED": "No seleccionado",
       "DEFAULT_IMG_PATH": "Ruta predeterminada de la imagen",
       "DEFAULT_FOLDER_PATH": "Ruta predeterminada de la carpeta",
-      "BUTTON_TITLE": "Establecer carpeta de salida"
+      "BUTTON_TITLE": "Establecer carpeta de salida",
+      "LOCAL_WORKSPACE": "Local Workspace",
+      "DEFAULT_BADGE": "Default",
+      "CUSTOM_BADGE": "Custom"
     },
     "SCALE_SELECTION": {
       "TITLE": "Paso 4",
@@ -204,7 +209,9 @@
       "SELECT_IMAGE": "Selecciona una imagen",
       "SELECT_FOLDER_DESCRIPTION": "Asegúrate de que la carpeta no contenga nada excepto imágenes PNG, JPG, JPEG y WEBP.",
       "SELECT_IMAGES_DESCRIPTION": "Selecciona o arrastra y suelta una imagen PNG, JPG, JPEG o WEBP.",
-      "PASTE_IMAGE_DESCRIPTION": "Presiona Ctrl+V o ⌘+V para pegar la imagen desde el portapapeles"
+      "PASTE_IMAGE_DESCRIPTION": "Presiona Ctrl+V o ⌘+V para pegar la imagen desde el portapapeles",
+      "INPUT_DATA_SETUP": "Input Data Setup",
+      "INPUT_DATA_DESCRIPTION": "Drag and drop an image file into this area or click to extract from local memory"
     },
     "PROGRESS": {
       "PROCESSING_TITLE": "Procesando la imagen...",
@@ -223,7 +230,22 @@
     },
     "DIALOG_BOX": {
       "CLOSE": "Cerrar"
-    }
+    },
+    "ACTIVATION": {
+      "TITLE": "LICENSE ACTIVATION",
+      "DESCRIPTION": "Please enter your activation code to start using the product. If you do not have an activation code, click the link below to get support.",
+      "INPUT_PLACEHOLDER": "Enter activation code (Example: PIXELUP-XXXXXX-XXXXXX)",
+      "BUTTON_TITLE": "Activate Application",
+      "SUPPORT_LINK": "No activation code? Get license at sharpix.me",
+      "SUCCESS": "License activated successfully! Thank you for your support.",
+      "ERROR": "Invalid or expired activation code. Please check again!",
+      "ERROR_DIFFERENT_MACHINE": "This activation code was created for a different computer, it cannot be used on this computer!",
+      "ERROR_EXPIRED": "This activation code has expired! Please contact the admin to renew.",
+      "ERROR_CLOCK_TAMPERED": "Unusual system clock detected. Please set your system time to the correct time!",
+      "MACHINE_ID_LABEL": "Your Machine ID (Send this to us to get your activation code):"
+    },
+    "SELECT_DIFFERENT_FOLDER": "Select another folder",
+    "SELECT_DIFFERENT_IMAGE": "Select another image"
   },
   "ERRORS": {
     "GPU_ERROR": {
@@ -310,5 +332,9 @@
       "TITLE": "¡Todo listo! 🎉",
       "DESCRIPTION": "¡Estás listo para empezar a aumentar imágenes con Upscayl!"
     }
-  }
+  },
+  "OVERVIEW": "Overview",
+  "AI_PARAMETERS": "AI Parameters",
+  "RESOLUTION_PARAMS": "Resolution Parameters",
+  "SCALE_LABEL": "Amplification Coefficient"
 }
