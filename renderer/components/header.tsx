@@ -25,7 +25,7 @@ export default function Header({ version }: { version: string }) {
           Pixel UP
         </h1>
         <span className="text-[10px] font-extrabold tracking-widest text-[#5D5FEF]/80 uppercase leading-none mt-1">
-          VERSION {version.split(" ")[0]}
+          VERSION {version ? version.split(" ")[0] : "1.0.0"}
         </span>
       </div>
     </div>
