@@ -61,7 +61,20 @@ const createMainWindow = () => {
   fetchLocalStorage();
 
   if (!electronIsDev) {
-    autoUpdater.checkForUpdatesAndNotify();
+    mainWindow.webContents
+      .executeJavaScript('localStorage.getItem("autoUpdate");', true)
+      .then((autoUpdateVal: string | null) => {
+        // Default to true if the setting doesn't exist yet, otherwise check if it is "true"
+        const shouldUpdate = autoUpdateVal === null || autoUpdateVal === "true";
+        if (shouldUpdate) {
+          autoUpdater.checkForUpdatesAndNotify();
+        }
+      })
+      .catch((err) => {
+        console.error("Failed to check auto-update settings:", err);
+        // Fallback to checking updates in case of error
+        autoUpdater.checkForUpdatesAndNotify();
+      });
   }
 
   mainWindow.webContents.send(ELECTRON_COMMANDS.OS, getPlatform());

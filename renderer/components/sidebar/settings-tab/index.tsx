@@ -104,8 +104,8 @@ function SettingsTab({
   };
 
   const upscaylVersion = navigator?.userAgent?.match(
-    /(Upscayl|Sharpix AI|sharpix-ai)\/([\d\.]+\d+)/,
-  )?.[2] || "2.15.0";
+    /(Pixel UP|pixel-up|Upscayl|Sharpix AI|sharpix-ai)\/([\d\.]+\d+)/i,
+  )?.[2] || "1.0.0";
 
   function disableScrolling() {
     if (timeoutId !== null) {
@@ -158,6 +158,9 @@ function SettingsTab({
 
       {/* OVERWRITE PREVIOUS UPSCALE TOGGLE */}
       <OverwriteToggle />
+
+      {/* AUTO UPDATE TOGGLE */}
+      <AutoUpdateToggle />
 
       {/* RESET SETTINGS */}
       <ResetSettingsButton />

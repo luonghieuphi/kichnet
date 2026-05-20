@@ -459,6 +459,18 @@ const Home = () => {
         setModelIds(data);
       },
     );
+    // AI IMAGE RECEIVED LISTENER
+    window.electron.on(
+      ELECTRON_COMMANDS.AI_IMAGE_RECEIVED,
+      (_, data: string) => {
+        logit(`🤖 AI IMAGE RECEIVED: `, data);
+        setImagePath(data);
+        toast({
+          title: "🤖 Robot KichNet",
+          description: "Đã thu hồi ảnh từ AI! Bạn có thể bắt đầu Upscale ngay.",
+        });
+      },
+    );
   }, []);
 
   // LOADING STATE & ACTIVATION CHECK WITH HWID LATCH
@@ -491,14 +503,14 @@ const Home = () => {
     if (activated && storedKey && currentHash) {
       const verification = verifyKeyForMachine(storedKey, currentHash);
       if (verification.valid) {
-        // Initial online check
+        // Cấp quyền vào ngay lập tức (Optimistic UI) để trải nghiệm offline mượt mà
+        setIsActivated(true);
+        // Initial online check ngầm
         isKeyRevoked(storedKey, currentHash).then((revoked) => {
           if (revoked) {
             localStorage.removeItem("pixelup_activated");
             localStorage.removeItem("pixelup_license_key");
             setIsActivated(false);
-          } else {
-            setIsActivated(true);
           }
         });
       } else {

@@ -5,9 +5,9 @@ const useUpscaylVersion = () => {
 
   useEffect(() => {
     const match = navigator?.userAgent?.match(
-      /(?:Sharpix AI|sharpix-ai|Upscayl)\/([\d\.]+\d+)/i,
+      /(?:Pixel UP|pixel-up|Sharpix AI|sharpix-ai|Upscayl)\/([\d\.]+\d+)/i,
     );
-    const upscaylVersion = match ? match[1] : "2.15.0";
+    const upscaylVersion = match ? match[1] : "1.0.0";
     setVersion(upscaylVersion);
   }, []);
 

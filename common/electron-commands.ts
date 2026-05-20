@@ -30,6 +30,7 @@ const ELECTRON_COMMANDS = {
   PASTE_IMAGE: "Paste Image from clipboard",
   PASTE_IMAGE_SAVE_SUCCESS: "Clipboard Image saved successfully",
   PASTE_IMAGE_SAVE_ERROR: "Clipboard Image save failed",
+  AI_IMAGE_RECEIVED: "AI Assistant generated a new image",
 } as const;
 
 export { ELECTRON_COMMANDS };
