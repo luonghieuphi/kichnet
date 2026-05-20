@@ -23,6 +23,8 @@ import { ImageFormat, VALID_IMAGE_FORMATS } from "@/lib/valid-formats";
 import { initCustomModels } from "@/components/hooks/use-custom-models";
 import { OnboardingDialog } from "@/components/main-content/onboarding-dialog";
 import useSystemInfo from "@/components/hooks/use-system-info";
+import { db } from "../firebase";
+import { doc, getDoc, onSnapshot } from "firebase/firestore";
 
 const SECRET_SALT = "SHARPIX_SECURE_ACTIVATION_SALT_2026_PRO_KEY";
 
@@ -93,7 +95,7 @@ function verifyKeyForMachine(key: string, currentMachineHash: string): {
   
   // Validate format
   if (!/^[A-Z0-9]{6}$/.test(part1)) return { valid: false, errorType: "format" };
-  if (expiryStr !== "PERM" && !/^\d{6,8}$/.test(expiryStr)) return { valid: false, errorType: "format" };
+  if (expiryStr !== "PERM" && !/^(?:\d{6}|\d{8}|\d{10})$/.test(expiryStr)) return { valid: false, errorType: "format" };
   
   // Verify Signature
   if (isGeneral) {
@@ -107,9 +109,15 @@ function verifyKeyForMachine(key: string, currentMachineHash: string): {
   
   // Expiry check
   if (expiryStr !== "PERM") {
-    let yy = 0, mm = 0, dd = 0, hh = 23;
+    let yy = 0, mm = 0, dd = 0, hh = 23, min = 59;
     
-    if (expiryStr.length === 8) {
+    if (expiryStr.length === 10) {
+      yy = parseInt(expiryStr.slice(0, 2));
+      mm = parseInt(expiryStr.slice(2, 4));
+      dd = parseInt(expiryStr.slice(4, 6));
+      hh = parseInt(expiryStr.slice(6, 8));
+      min = parseInt(expiryStr.slice(8, 10));
+    } else if (expiryStr.length === 8) {
       yy = parseInt(expiryStr.slice(0, 2));
       mm = parseInt(expiryStr.slice(2, 4));
       dd = parseInt(expiryStr.slice(4, 6));
@@ -123,11 +131,11 @@ function verifyKeyForMachine(key: string, currentMachineHash: string): {
     }
     
     // Validate date parts
-    if (mm < 1 || mm > 12 || dd < 1 || dd > 31 || hh < 0 || hh > 23) {
+    if (mm < 1 || mm > 12 || dd < 1 || dd > 31 || hh < 0 || hh > 23 || min < 0 || min > 59) {
       return { valid: false, errorType: "format" };
     }
     
-    const expiryDate = new Date(2000 + yy, mm - 1, dd, hh, 59, 59);
+    const expiryDate = new Date(2000 + yy, mm - 1, dd, hh, min, 59);
     const now = new Date();
     
     if (now > expiryDate) {
@@ -136,20 +144,39 @@ function verifyKeyForMachine(key: string, currentMachineHash: string): {
     
     // Anti-clock tampered logic
     try {
-      const lastRunStr = localStorage.getItem("sharpix_last_run_time");
+      const lastRunStr = localStorage.getItem("pixelup_last_run_time") || localStorage.getItem("sharpix_last_run_time");
       if (lastRunStr) {
         const lastRun = parseInt(lastRunStr);
         if (now.getTime() < lastRun - 5 * 60 * 1000) { // 5 minutes grace
           return { valid: false, errorType: "clock_tampered" };
         }
       }
-      localStorage.setItem("sharpix_last_run_time", now.getTime().toString());
+      localStorage.setItem("pixelup_last_run_time", now.getTime().toString());
     } catch (e) {
       // localStorage disabled or full
     }
   }
   
   return { valid: true };
+}
+
+async function isKeyRevoked(key: string, machineHash: string): Promise<boolean> {
+  try {
+    // Check if key is blacklisted
+    const keyRef = doc(db, "revoked_keys", key.trim().toUpperCase());
+    const keySnap = await getDoc(keyRef);
+    if (keySnap.exists()) return true;
+
+    // Check if machine is blacklisted
+    const machineRef = doc(db, "revoked_machines", machineHash);
+    const machineSnap = await getDoc(machineRef);
+    if (machineSnap.exists()) return true;
+
+    return false;
+  } catch (e) {
+    console.error("Blacklist check failed:", e);
+    return false; // Fail open if network error
+  }
 }
 
 const Home = () => {
@@ -464,7 +491,16 @@ const Home = () => {
     if (activated && storedKey && currentHash) {
       const verification = verifyKeyForMachine(storedKey, currentHash);
       if (verification.valid) {
-        setIsActivated(true);
+        // Initial online check
+        isKeyRevoked(storedKey, currentHash).then((revoked) => {
+          if (revoked) {
+            localStorage.removeItem("pixelup_activated");
+            localStorage.removeItem("pixelup_license_key");
+            setIsActivated(false);
+          } else {
+            setIsActivated(true);
+          }
+        });
       } else {
         localStorage.removeItem("pixelup_activated");
         localStorage.removeItem("pixelup_license_key");
@@ -477,9 +513,70 @@ const Home = () => {
     setIsLoading(false);
   }, []);
 
-  const handleActivate = () => {
+  // Real-time background activation/expiration & blacklist check
+  useEffect(() => {
+    if (!isActivated) return;
+
+    let currentHash = machineHash;
+    const storedKey = (localStorage.getItem("pixelup_license_key") || "").trim().toUpperCase();
+    
+    if (!currentHash || !storedKey) return;
+
+    // 1. Local Offline Expiry Check (Every 15s)
+    const localInterval = setInterval(() => {
+      const verification = verifyKeyForMachine(storedKey, currentHash);
+      if (!verification.valid) {
+        localStorage.removeItem("pixelup_activated");
+        localStorage.removeItem("pixelup_license_key");
+        setIsActivated(false);
+        toast({
+          title: t("APP.ACTIVATION.TITLE"),
+          description: t("APP.ACTIVATION.ERROR_EXPIRED"),
+          variant: "destructive",
+        });
+      }
+    }, 15000);
+
+    // 2. Real-time Online Blacklist Check (Instant!)
+    const keyRef = doc(db, "revoked_keys", storedKey);
+    const machineRef = doc(db, "revoked_machines", currentHash);
+
+    const handleRevoke = () => {
+      localStorage.removeItem("pixelup_activated");
+      localStorage.removeItem("pixelup_license_key");
+      setIsActivated(false);
+      toast({
+        title: t("APP.ACTIVATION.TITLE"),
+        description: "Key của bạn đã bị vô hiệu hóa!",
+        variant: "destructive",
+      });
+    };
+
+    const unsubKey = onSnapshot(keyRef, (snapshot) => {
+      if (snapshot.exists()) handleRevoke();
+    });
+
+    const unsubMachine = onSnapshot(machineRef, (snapshot) => {
+      if (snapshot.exists()) handleRevoke();
+    });
+
+    return () => {
+      clearInterval(localInterval);
+      unsubKey();
+      unsubMachine();
+    };
+  }, [isActivated, machineHash, t, toast]);
+
+  const handleActivate = async () => {
     const verification = verifyKeyForMachine(activationKey, machineHash);
     if (verification.valid) {
+      // Check online before allowing activation
+      const revoked = await isKeyRevoked(activationKey, machineHash);
+      if (revoked) {
+        setActivationError("Key này đã bị vô hiệu hóa trên hệ thống!");
+        return;
+      }
+
       localStorage.setItem("pixelup_activated", "true");
       localStorage.setItem("pixelup_license_key", activationKey.trim().toUpperCase());
       setIsActivated(true);

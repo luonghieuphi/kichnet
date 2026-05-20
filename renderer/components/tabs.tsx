@@ -12,7 +12,7 @@ const Tabs = ({ selectedTab, setSelectedTab }: TabsProps) => {
   const t = useAtomValue(translationAtom);
 
   return (
-    <div className="tabs-boxed tabs mx-auto mb-2">
+    <div className="tabs-boxed tabs mx-5 mb-2">
       <a
         className={`tab gap-2 ${selectedTab === 0 && "tab-active"}`}
         onClick={() => {

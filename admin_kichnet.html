@@ -363,6 +363,9 @@
       <select id="expiry-select"
         style="background-color: rgba(255, 255, 255, 0.03); border: 1px solid var(--border); border-radius: 12px; color: var(--text); font-size: 16px; font-weight: 600; padding: 14px 20px; width: 100%; outline: none;">
         <option value="PERM">Vĩnh Viễn (Lifetime)</option>
+        <option value="1Min">⏳ 1 Phút (Kiểm thử)</option>
+        <option value="5Min">⏳ 5 Phút (Kiểm thử)</option>
+        <option value="10Min">⏳ 10 Phút (Kiểm thử)</option>
         <option value="1H">⏳ 1 Giờ (Dùng thử)</option>
         <option value="3D">📅 3 Ngày</option>
         <option value="1W">📅 1 Tuần</option>
@@ -467,7 +470,26 @@
 
   <div class="toast" id="toast">Đã sao chép thành công!</div>
 
+  <!-- Firebase SDK -->
+  <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore-compat.js"></script>
+
   <script>
+    // Firebase Config
+    const firebaseConfig = {
+      apiKey: "AIzaSyBMcbiSYv6AYvWnHlDtVI-TLTfHOR23mNE",
+      authDomain: "kichnet-b0bba.firebaseapp.com",
+      projectId: "kichnet-b0bba",
+      storageBucket: "kichnet-b0bba.firebasestorage.app",
+      messagingSenderId: "910402595212",
+      appId: "1:910402595212:web:66c79377f7366b0e150ea9",
+      measurementId: "G-L84WC70QEY"
+    };
+
+    // Initialize Firebase
+    firebase.initializeApp(firebaseConfig);
+    const db = firebase.firestore();
+
     const SECRET_SALT = "SHARPIX_SECURE_ACTIVATION_SALT_2026_PRO_KEY";
 
     // Same mathematical hash function used by the App's lock screen
@@ -498,6 +520,17 @@
       if (val === "PERM") return "PERM";
 
       const d = new Date();
+      if (val.endsWith("Min")) {
+        const mins = parseInt(val);
+        d.setMinutes(d.getMinutes() + mins);
+        const yy = String(d.getFullYear() % 100).padStart(2, "0");
+        const mm = String(d.getMonth() + 1).padStart(2, "0");
+        const dd = String(d.getDate()).padStart(2, "0");
+        const hh = String(d.getHours()).padStart(2, "0");
+        const min = String(d.getMinutes()).padStart(2, "0");
+        return `${yy}${mm}${dd}${hh}${min}`;
+      }
+
       if (val === "1H") {
         d.setHours(d.getHours() + 1);
         const yy = String(d.getFullYear() % 100).padStart(2, "0");
@@ -801,8 +834,10 @@
           <td style="padding: 12px 10px; font-weight: 600; color: #4fa8ff; font-family: monospace; letter-spacing: 0.5px;">${item.hwid}</td>
           <td style="padding: 12px 10px; font-weight: 600; color: #e0e0e0;">${item.expiry}</td>
           <td style="padding: 12px 10px; font-family: monospace; font-weight: bold; color: #ffffff; letter-spacing: 0.5px; user-select: all;">${item.key}</td>
-          <td style="padding: 12px 10px; text-align: right;">
+          <td style="padding: 12px 10px; text-align: right; display: flex; gap: 5px; justify-content: flex-end;">
             <button class="btn-copy-item" data-key="${item.key}" style="background: rgba(93, 95, 239, 0.15); border: 1px solid rgba(93, 95, 239, 0.3); color: var(--primary); padding: 5px 10px; border-radius: 6px; cursor: pointer; font-size: 12px; font-weight: 600; transition: all 0.2s;">Sao chép 📋</button>
+            <button class="btn-revoke-item" data-key="${item.key}" data-hwid="${item.hwid}" style="background: rgba(231, 76, 60, 0.15); border: 1px solid rgba(231, 76, 60, 0.3); color: #e74c3c; padding: 5px 10px; border-radius: 6px; cursor: pointer; font-size: 12px; font-weight: 600; transition: all 0.2s;">Khóa 🚫</button>
+            <button class="btn-unrevoke-item" data-key="${item.key}" data-hwid="${item.hwid}" style="background: rgba(46, 204, 113, 0.15); border: 1px solid rgba(46, 204, 113, 0.3); color: #2ecc71; padding: 5px 10px; border-radius: 6px; cursor: pointer; font-size: 12px; font-weight: 600; transition: all 0.2s;">Mở khóa 🔓</button>
           </td>
         `;
 
@@ -810,6 +845,80 @@
           const keyText = this.getAttribute("data-key");
           navigator.clipboard.writeText(keyText);
           showToast("Đã sao chép khóa thành công!");
+        });
+
+        tr.querySelector(".btn-revoke-item").addEventListener("click", async function () {
+          const keyText = this.getAttribute("data-key");
+          const hwidText = this.getAttribute("data-hwid");
+          
+          if (confirm(`Bạn có chắc chắn muốn KHÓA vĩnh viễn Key này?\nKey: ${keyText}\nKhách hàng sẽ không thể sử dụng ứng dụng nữa.`)) {
+            try {
+              this.disabled = true;
+              this.innerText = "Đang khóa...";
+              
+              // Add to revoked_keys collection
+              await db.collection("revoked_keys").doc(keyText).set({
+                revokedAt: firebase.firestore.FieldValue.serverTimestamp(),
+                reason: "Admin manual revoke"
+              });
+
+              // Also revoke by HWID if it's a specific machine key
+              if (hwidText && hwidText !== "Tất cả các máy") {
+                const cleanHwid = hwidText.replace("PIXELUP-HWID-", "");
+                await db.collection("revoked_machines").doc(cleanHwid).set({
+                  revokedAt: firebase.firestore.FieldValue.serverTimestamp(),
+                  reason: "Admin manual revoke"
+                });
+              }
+
+              showToast("Đã khóa Key thành công! App của khách sẽ bị khóa sau vài phút.");
+              this.innerText = "Đã khóa 🔒";
+              this.style.opacity = "0.5";
+            } catch (error) {
+              console.error("Revoke error:", error);
+              showToast("Lỗi khi khóa Key: " + error.message);
+              this.disabled = false;
+              this.innerText = "Khóa 🚫";
+            }
+          }
+        });
+
+        tr.querySelector(".btn-unrevoke-item").addEventListener("click", async function () {
+          const keyText = this.getAttribute("data-key");
+          const hwidText = this.getAttribute("data-hwid");
+          
+          if (confirm(`Bạn muốn MỞ KHÓA lại cho Key này?\nKey: ${keyText}`)) {
+            try {
+              this.disabled = true;
+              this.innerText = "Đang mở...";
+              
+              // Remove from revoked_keys
+              await db.collection("revoked_keys").doc(keyText).delete();
+
+              // Also unrevoke by HWID if it's a specific machine key
+              if (hwidText && hwidText !== "Tất cả các máy") {
+                const cleanHwid = hwidText.replace("PIXELUP-HWID-", "");
+                await db.collection("revoked_machines").doc(cleanHwid).delete();
+              }
+
+              showToast("Đã mở khóa thành công! Khách hàng có thể dùng lại bình thường.");
+              this.innerText = "Mở khóa 🔓";
+              this.disabled = false;
+
+              // Khôi phục nút Khóa ở cùng dòng
+              const revokeBtn = tr.querySelector(".btn-revoke-item");
+              if (revokeBtn) {
+                revokeBtn.disabled = false;
+                revokeBtn.innerText = "Khóa 🚫";
+                revokeBtn.style.opacity = "1";
+              }
+            } catch (error) {
+              console.error("Unrevoke error:", error);
+              showToast("Lỗi khi mở khóa: " + error.message);
+              this.disabled = false;
+              this.innerText = "Mở khóa 🔓";
+            }
+          }
         });
 
         tbody.appendChild(tr);

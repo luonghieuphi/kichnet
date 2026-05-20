@@ -34,8 +34,14 @@ export default function TopBar() {
       return;
     }
 
-    let yy = 0, mm = 0, dd = 0, hh = 23;
-    if (expiryStr.length === 8) {
+    let yy = 0, mm = 0, dd = 0, hh = 23, min = 59;
+    if (expiryStr.length === 10) {
+      yy = parseInt(expiryStr.slice(0, 2));
+      mm = parseInt(expiryStr.slice(2, 4));
+      dd = parseInt(expiryStr.slice(4, 6));
+      hh = parseInt(expiryStr.slice(6, 8));
+      min = parseInt(expiryStr.slice(8, 10));
+    } else if (expiryStr.length === 8) {
       yy = parseInt(expiryStr.slice(0, 2));
       mm = parseInt(expiryStr.slice(2, 4));
       dd = parseInt(expiryStr.slice(4, 6));
@@ -49,16 +55,32 @@ export default function TopBar() {
       return;
     }
 
-    const expiryDate = new Date(2000 + yy, mm - 1, dd, hh, 59, 59);
-    const now = new Date();
-    const diffTime = expiryDate.getTime() - now.getTime();
-    const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+    const expiryDate = new Date(2000 + yy, mm - 1, dd, hh, min, 59);
+    const updateRemaining = () => {
+      const now = new Date();
+      const diffTime = expiryDate.getTime() - now.getTime();
+      
+      if (diffTime <= 0) {
+        setRemainingText("Hết hạn");
+        return;
+      }
 
-    if (diffDays > 0) {
-      setRemainingText(`${diffDays} ngày`);
-    } else {
-      setRemainingText("Hết hạn");
-    }
+      const diffDays = Math.floor(diffTime / (1000 * 60 * 60 * 24));
+      const diffHours = Math.floor((diffTime % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const diffMinutes = Math.floor((diffTime % (1000 * 60 * 60)) / (1000 * 60));
+
+      if (diffDays > 0) {
+        setRemainingText(`${diffDays} ngày`);
+      } else if (diffHours > 0) {
+        setRemainingText(`${diffHours} giờ`);
+      } else {
+        setRemainingText(`${diffMinutes} phút`);
+      }
+    };
+
+    updateRemaining();
+    const interval = setInterval(updateRemaining, 10000); // Kiểm tra mỗi 10 giây để nhảy phút nhạy hơn
+    return () => clearInterval(interval);
   }, []);
 
   return (

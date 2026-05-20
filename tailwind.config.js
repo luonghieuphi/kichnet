@@ -110,10 +110,10 @@ module.exports = {
           primary: "#1E88FF",
           secondary: "#22D3EE",
           accent: "#22D3EE",
-          neutral: "#0F172A",
-          "base-100": "#041529",
-          "base-200": "#0A2240",
-          "base-300": "#020C1B",
+          neutral: "#07080A",
+          "base-100": "#07080A",
+          "base-200": "#0D0E12",
+          "base-300": "#020304",
           "--rounded-btn": "2rem", // border radius rounded-btn utility class, used in buttons and similar element
           "--rounded-badge": "2rem", // border radius rounded-badge utility class, used in badges and similar
           "--animation-btn": "0.5s", // duration of animation when you click on button

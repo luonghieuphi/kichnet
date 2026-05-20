@@ -34,13 +34,12 @@ const SliderView = ({
             /* USE REGEX TO GET THE FILENAME AND ENCODE IT INTO PROPER FORM IN ORDER TO AVOID ERRORS DUE TO SPECIAL CHARACTERS */
             src={"file:///" + sanitizedImagePath}
             alt={t("APP.SLIDER.ORIGINAL_TITLE")}
-            onMouseMove={handleMouseMove}
             style={{
               objectFit: "contain",
-              backgroundPosition: "0% 0%",
-              transformOrigin: backgroundPosition,
+              transformOrigin: "center",
+              transform: `scale(${parseFloat(zoomAmount) / 100})`,
             }}
-            className={`h-full w-full bg-gradient-to-br from-base-300 to-base-100 transition-transform group-hover:scale-[${zoomAmount}%]`}
+            className="h-full w-full bg-gradient-to-br from-base-300 to-base-100 transition-transform duration-300"
           />
         </>
       }
@@ -55,13 +54,10 @@ const SliderView = ({
             alt={t("APP.SLIDER.UPSCAYLED_TITLE")}
             style={{
               objectFit: "contain",
-              backgroundPosition: "0% 0%",
-              transformOrigin: backgroundPosition,
+              transformOrigin: "center",
+              transform: `scale(${parseFloat(zoomAmount) / 100})`,
             }}
-            onMouseMove={handleMouseMove}
-            className={`h-full w-full bg-gradient-to-br from-base-300 to-base-100 transition-transform group-hover:scale-[${
-              zoomAmount || "100%"
-            }%]`}
+            className="h-full w-full bg-gradient-to-br from-base-300 to-base-100 transition-transform duration-300"
           />
         </>
       }

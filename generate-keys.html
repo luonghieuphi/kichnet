@@ -364,6 +364,9 @@
       <select id="expiry-select"
         style="background-color: rgba(255, 255, 255, 0.03); border: 1px solid var(--border); border-radius: 12px; color: var(--text); font-size: 16px; font-weight: 600; padding: 14px 20px; width: 100%; outline: none;">
         <option value="PERM">Vĩnh Viễn (Lifetime)</option>
+        <option value="1Min">⏳ 1 Phút (Kiểm thử)</option>
+        <option value="5Min">⏳ 5 Phút (Kiểm thử)</option>
+        <option value="10Min">⏳ 10 Phút (Kiểm thử)</option>
         <option value="1H">⏳ 1 Giờ (Dùng thử)</option>
         <option value="3D">📅 3 Ngày</option>
         <option value="1W">📅 1 Tuần</option>
@@ -493,6 +496,17 @@
       if (val === "PERM") return "PERM";
 
       const d = new Date();
+      if (val.endsWith("Min")) {
+        const mins = parseInt(val);
+        d.setMinutes(d.getMinutes() + mins);
+        const yy = String(d.getFullYear() % 100).padStart(2, "0");
+        const mm = String(d.getMonth() + 1).padStart(2, "0");
+        const dd = String(d.getDate()).padStart(2, "0");
+        const hh = String(d.getHours()).padStart(2, "0");
+        const min = String(d.getMinutes()).padStart(2, "0");
+        return `${yy}${mm}${dd}${hh}${min}`;
+      }
+
       if (val === "1H") {
         d.setHours(d.getHours() + 1);
         const yy = String(d.getFullYear() % 100).padStart(2, "0");

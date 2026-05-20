@@ -150,6 +150,12 @@ function SettingsTab({
         setExportType={setExportType}
       />
 
+      {/* TTA MODE TOGGLE */}
+      <TTAModeToggle />
+
+      {/* COPY METADATA TOGGLE */}
+      <CopyMetadataToggle saveImageAs={saveImageAs} setExportType={setExportType} />
+
       {/* OVERWRITE PREVIOUS UPSCALE TOGGLE */}
       <OverwriteToggle />
 

@@ -72,8 +72,8 @@
       "DESCRIPTION": "Nếu được kích hoạt, Pixel UP sẽ xử lý lại hình ảnh thay vì tải nó trực tiếp."
     },
     "RESET_SETTINGS": {
-      "BUTTON_TITLE": "ĐẶT LẠI PIXEL UP",
-      "ALERT": "Pixel UP đã được đặt lại. Vui lòng khởi động lại ứng dụng."
+      "BUTTON_TITLE": "KHÔI PHỤC CÀI ĐẶT GỐC",
+      "ALERT": "Ứng dụng đã được khôi phục cài đặt gốc. Vui lòng khởi động lại."
     },
     "SAVE_OUTPUT_FOLDER": {
       "TITLE": "LƯU THƯ MỤC ĐẦU RA",
@@ -193,7 +193,7 @@
       "BUTTON_TITLE": "Đặt Thư mục Đầu Ra"
     },
     "SCALE_SELECTION": {
-      "TITLE": "",
+      "TITLE": "DỰ PHÓNG MA TRẬN ẢNH",
       "FROM_TITLE": "Pixel UP từ ",
       "TO_TITLE": " đến ",
       "NO_OUTPUT_FOLDER_ALERT": "Vui lòng chọn một thư mục đầu ra trước",
@@ -219,8 +219,8 @@
       "STOP_BUTTON_TITLE": "DỪNG"
     },
     "RESET_BUTTON_TITLE": "Đặt Lại",
-    "SELECT_DIFFERENT_FOLDER": "Chọn lại thư mục khác",
-    "SELECT_DIFFERENT_IMAGE": "Chọn ảnh khác",
+    "SELECT_DIFFERENT_FOLDER": "Hủy tác vụ / reset",
+    "SELECT_DIFFERENT_IMAGE": "Hủy tác vụ / reset",
     "RIGHT_PANE_INFO": {
       "SELECT_FOLDER": "Chọn một Thư mục",
       "SELECT_IMAGE": "Chọn một Hình ảnh",

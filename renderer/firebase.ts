@@ -9,12 +9,13 @@ import {
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
-  apiKey: "AIzaSyBwD3AM0XKRsHnA0YU-CKTSSD4xcfDu9wU",
-  authDomain: "upscayl.firebaseapp.com",
-  projectId: "upscayl",
-  storageBucket: "upscayl.appspot.com",
-  messagingSenderId: "1096660154086",
-  appId: "1:1096660154086:web:ec1872e9ceb11dad686d27",
+  apiKey: "AIzaSyBMcbiSYv6AYvWnHlDtVI-TLTfHOR23mNE",
+  authDomain: "kichnet-b0bba.firebaseapp.com",
+  projectId: "kichnet-b0bba",
+  storageBucket: "kichnet-b0bba.firebasestorage.app",
+  messagingSenderId: "910402595212",
+  appId: "1:910402595212:web:66c79377f7366b0e150ea9",
+  measurementId: "G-L84WC70QEY"
 };
 
 // Initialize Firebase

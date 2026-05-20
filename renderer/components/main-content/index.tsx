@@ -26,6 +26,7 @@ import ImageViewer from "./image-viewer";
 import useTranslation from "../hooks/use-translation";
 import SliderView from "./slider-view";
 import TopBar from "../top-bar";
+import { ZoomIn, ZoomOut, Scan } from "lucide-react";
 
 type MainContentProps = {
   imagePath: string;
@@ -268,7 +269,7 @@ const MainContent = ({
 
   return (
     <div
-      className="relative flex h-screen w-full flex-col items-center justify-center"
+      className="relative flex h-screen w-full flex-col items-center justify-center bg-grid-pattern px-8"
       onDrop={handleDrop}
       onDragOver={handleDragOver}
       onDragEnter={handleDragEnter}
@@ -280,7 +281,7 @@ const MainContent = ({
       <TopBar />
 
       {/* Main Workspace Card Container */}
-      <div className="flex-1 w-full mx-6 mb-6 mt-[5.5rem] bg-base-200/50 rounded-[28px] border border-base-content/5 flex flex-col items-center justify-center overflow-hidden relative">
+      <div className="flex-1 w-full mb-6 mt-[5.5rem] bg-base-200/50 rounded-[28px] border border-base-content/5 flex flex-col items-center justify-center overflow-hidden relative">
         {progress.length > 0 &&
           upscaledImagePath.length === 0 &&
           upscaledBatchFolderPath.length === 0 && (
@@ -304,7 +305,11 @@ const MainContent = ({
 
         {/* SHOW SELECTED IMAGE */}
         {!batchMode && upscaledImagePath.length === 0 && imagePath.length > 0 && (
-          <ImageViewer imagePath={imagePath} setDimensions={setDimensions} />
+          <ImageViewer 
+            imagePath={imagePath} 
+            setDimensions={setDimensions} 
+            zoomAmount={zoomAmount}
+          />
         )}
 
         {/* BATCH UPSCALE SHOW SELECTED FOLDER */}
@@ -352,6 +357,72 @@ const MainContent = ({
               zoomAmount={zoomAmount}
             />
           )}
+
+        {/* FLOATING ZOOM TOOLBAR */}
+        {!batchMode && imagePath.length > 0 && (
+          <div
+            onDoubleClick={(e) => e.stopPropagation()}
+            className="absolute bottom-5 left-1/2 -translate-x-1/2 z-50 flex items-center gap-2.5 px-4 py-2 bg-[#222225] border border-white/5 rounded-full shadow-[0_8px_32px_rgba(0,0,0,0.5)] select-none"
+          >
+            {/* Zoom Out Button */}
+            <button
+              onClick={() => {
+                const current = parseInt(zoomAmount) || 100;
+                let next = current;
+                if (current <= 100) {
+                  next = Math.max(50, current - 25);
+                } else {
+                  next = Math.max(100, current - 50);
+                }
+                setZoomAmount(next.toString());
+                localStorage.setItem("zoomAmount", next.toString());
+              }}
+              className="p-1.5 rounded-lg text-zinc-400 hover:text-white hover:bg-white/5 active:scale-90 transition-all duration-150 cursor-pointer"
+              title="Thu nhỏ"
+            >
+              <ZoomOut className="w-4.5 h-4.5" />
+            </button>
+
+            {/* Zoom Percentage */}
+            <span className="text-xs font-mono font-bold text-zinc-200 min-w-[2.8rem] text-center">
+              {zoomAmount}%
+            </span>
+
+            {/* Zoom In Button */}
+            <button
+              onClick={() => {
+                const current = parseInt(zoomAmount) || 100;
+                let next = current;
+                if (current < 100) {
+                  next = Math.min(100, current + 25);
+                } else {
+                  next = Math.min(1000, current + 50);
+                }
+                setZoomAmount(next.toString());
+                localStorage.setItem("zoomAmount", next.toString());
+              }}
+              className="p-1.5 rounded-lg text-zinc-400 hover:text-white hover:bg-white/5 active:scale-90 transition-all duration-150 cursor-pointer"
+              title="Phóng to"
+            >
+              <ZoomIn className="w-4.5 h-4.5" />
+            </button>
+
+            {/* Vertical Divider */}
+            <div className="w-[1px] h-3.5 bg-zinc-700/80" />
+
+            {/* Reset Zoom / Fit Button */}
+            <button
+              onClick={() => {
+                setZoomAmount("100");
+                localStorage.setItem("zoomAmount", "100");
+              }}
+              className="p-1.5 rounded-lg text-zinc-400 hover:text-white hover:bg-white/5 active:scale-90 transition-all duration-150 cursor-pointer"
+              title="Đặt lại zoom"
+            >
+              <Scan className="w-4.5 h-4.5" />
+            </button>
+          </div>
+        )}
       </div>
     </div>
   );

@@ -200,19 +200,23 @@ function UpscaylSteps({
       {/* STEP 4 */}
       <div className="animate-step-in mt-1">
         {dimensions.width && dimensions.height && (
-          <p className="mb-2.5 text-xs text-base-content/60">
-            {t("APP.SCALE_SELECTION.FROM_TITLE")}
-            <span className="font-bold">
-              {dimensions.width}x{dimensions.height}
-            </span>
-            {t("APP.SCALE_SELECTION.TO_TITLE")}
-            <span className="font-bold text-[#8b5cf6]">
-              {upscaylResolution.width}x{upscaylResolution.height}
-            </span>
-          </p>
+          <div className="mb-3.5 flex flex-col gap-1.5 px-4 py-3.5 bg-[#121320]/45 border border-white/5 rounded-2xl shadow-[0_4px_12px_rgba(0,0,0,0.15)] backdrop-blur-md">
+            <p className="text-[10px] font-bold text-base-content/40 uppercase tracking-widest leading-none">
+              {t("APP.SCALE_SELECTION.TITLE")}
+            </p>
+            <div className="flex items-center gap-2 text-sm font-semibold text-base-content/75 mt-1 select-none leading-none">
+              <span className="font-mono text-base-content/60">
+                {dimensions.width} x {dimensions.height}
+              </span>
+              <span className="text-base-content/30 font-normal text-xs mx-1">→</span>
+              <span className="font-mono font-extrabold text-[#8b5cf6] drop-shadow-[0_0_8px_rgba(139,92,246,0.25)]">
+                {upscaylResolution.width} x {upscaylResolution.height}
+              </span>
+            </div>
+          </div>
         )}
         <button
-          className="btn btn-secondary w-full h-12 rounded-xl text-base font-bold transition-all duration-200 active:scale-95 shadow-lg shadow-secondary/20 mt-1 group"
+          className="w-full h-12 rounded-xl text-base font-extrabold text-white bg-gradient-to-r from-[#ff5e00] to-[#ff9200] hover:from-[#e55400] hover:to-[#e58300] border-none transition-all duration-200 active:scale-95 shadow-lg shadow-orange-500/25 mt-1 group cursor-pointer flex items-center justify-center"
           onClick={
             progress.length > 0 || !outputPath
               ? () =>

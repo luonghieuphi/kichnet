@@ -193,7 +193,7 @@
       "BUTTON_TITLE": "Set Output Folder"
     },
     "SCALE_SELECTION": {
-      "TITLE": "",
+      "TITLE": "IMAGE MATRIX PROJECTION",
       "FROM_TITLE": "Pixel UP from ",
       "TO_TITLE": " to ",
       "NO_OUTPUT_FOLDER_ALERT": "Please select an output folder first",
