@@ -105,7 +105,7 @@ function SettingsTab({
 
   const upscaylVersion = navigator?.userAgent?.match(
     /(Pixel UP|pixel-up|Upscayl|Sharpix AI|sharpix-ai)\/([\d\.]+\d+)/i,
-  )?.[2] || "1.0.0";
+  )?.[2] || "1.0.4";
 
   function disableScrolling() {
     if (timeoutId !== null) {

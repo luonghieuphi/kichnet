@@ -7,7 +7,7 @@ const useUpscaylVersion = () => {
     const match = navigator?.userAgent?.match(
       /(?:Pixel UP|pixel-up|Sharpix AI|sharpix-ai|Upscayl)\/([\d\.]+\d+)/i,
     );
-    const upscaylVersion = match ? match[1] : "1.0.0";
+    const upscaylVersion = match ? match[1] : "1.0.4";
     setVersion(upscaylVersion);
   }, []);
 

@@ -1,7 +1,7 @@
 {
   "name": "pixel-up",
   "private": true,
-  "version": "1.0.1",
+  "version": "1.0.4",
   "productName": "Pixel UP",
   "author": {
     "name": "Nayam Amarshe",
@@ -23,7 +23,7 @@
   ],
   "email": "nayam.emikx@aleeas.com",
   "license": "AGPL-3.0",
-  "description": "Sharpix AI - AI Image Upscaler",
+  "description": "Pixel UP - AI Image Upscaler",
   "keywords": [
     "AI",
     "Upscaler",
