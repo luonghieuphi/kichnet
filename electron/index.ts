@@ -28,6 +28,7 @@ import { getMainWindow } from "./main-window";
 
 // INITIALIZATION
 log.initialize({ preload: true });
+autoUpdater.logger = log;
 
 app.on("ready", async () => {
   await prepareNext("./renderer");
@@ -434,5 +435,19 @@ ipcMain.handle("open-ai-assistant", async (_event, { prompt, filePath }) => {
 });
 
 if (!FEATURE_FLAGS.APP_STORE_BUILD) {
+  // @ts-ignore
+  autoUpdater.verifyUpdateCodeSignature = false;
+  autoUpdater.on("checking-for-update", () => {
+    logit("🔍 Checking for update...");
+  });
+  autoUpdater.on("update-available", (info) => {
+    logit("🆕 Update available:", info.version);
+  });
+  autoUpdater.on("update-not-available", (info) => {
+    logit("✅ Update not available:", info.version);
+  });
+  autoUpdater.on("error", (err) => {
+    logit("❌ Update error:", err);
+  });
   autoUpdater.on("update-downloaded", autoUpdate);
 }

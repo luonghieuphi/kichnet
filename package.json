@@ -1,7 +1,7 @@
 {
   "name": "pixel-up",
   "private": true,
-  "version": "1.0.4",
+  "version": "1.0.7",
   "productName": "Pixel UP",
   "author": {
     "name": "Nayam Amarshe",
@@ -180,7 +180,6 @@
       "icon": "resources/icons/"
     },
     "win": {
-      "publisherName": "Pixel UP Team",
       "target": [
         "nsis",
         "zip"
