@@ -216,22 +216,6 @@ function UpscaylSteps({
           </div>
         )}
 
-        {imagePath && !batchMode && (
-          <button
-            className="w-full h-11 mb-3 rounded-xl text-xs font-bold text-white bg-[#10a37f] hover:bg-[#0d8a6a] border-none transition-all duration-200 active:scale-95 shadow-lg shadow-teal-500/20 flex items-center justify-center gap-2 cursor-pointer"
-            onClick={async () => {
-              const prompt = "Hãy phục hồi độ nét, khử nhiễu và làm rõ các chi tiết cho bức ảnh này để tôi có thể tiến hành upscale nó. Giữ nguyên màu sắc và cấu trúc gốc.";
-              toast({
-                description: "Đang mở Trợ lý AI phục hồi ảnh...",
-              });
-              await window.electron.invoke("open-ai-assistant", { prompt, filePath: imagePath });
-            }}
-          >
-            <span className="text-base">🤖</span>
-            Phục hồi bằng Cloud AI (Tự động)
-          </button>
-        )}
-
         <button
           className="w-full h-12 rounded-xl text-base font-extrabold text-white bg-gradient-to-r from-[#ff5e00] to-[#ff9200] hover:from-[#e55400] hover:to-[#e58300] border-none transition-all duration-200 active:scale-95 shadow-lg shadow-orange-500/25 mt-1 group cursor-pointer flex items-center justify-center"
           onClick={
