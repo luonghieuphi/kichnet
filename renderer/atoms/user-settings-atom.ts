@@ -100,3 +100,6 @@ export const copyMetadataAtom = atomWithStorage<boolean>(
   "copyMetadata",
   false,
 );
+
+export const selectedTabAtom = atom<number>(0);
+

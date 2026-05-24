@@ -42,14 +42,6 @@ export function SelectImageScale({
   if (hideInfo) {
     return (
       <div className="flex flex-col gap-2.5">
-        {/* STEP 2 HEADER */}
-        <div className="flex items-center gap-2.5 mb-0.5">
-          <div className="flex items-center justify-center rounded-[6px] border border-info/30 bg-info/10 px-1.5 py-0.5 text-[11px] font-bold text-info select-none">
-            02
-          </div>
-          <p className="step-heading !mb-0 leading-none">{t("RESOLUTION_PARAMS" as any)}</p>
-        </div>
-
         {/* PREMIUM SLIDER CARD */}
         <div className="flex flex-col gap-3 rounded-[14px] bg-base-200 border border-base-content/10 p-4 select-none">
           <div className="flex items-center justify-between">

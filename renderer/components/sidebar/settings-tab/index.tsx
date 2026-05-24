@@ -162,6 +162,16 @@ function SettingsTab({
       {/* AUTO UPDATE TOGGLE */}
       <AutoUpdateToggle />
 
+      {/* SYSTEM INFO */}
+      <SystemInfo />
+
+      {/* LOG AREA */}
+      <LogArea
+        copyOnClickHandler={copyOnClickHandler}
+        isCopied={isCopied}
+        logData={logData}
+      />
+
       {/* RESET SETTINGS */}
       <ResetSettingsButton />
     </div>

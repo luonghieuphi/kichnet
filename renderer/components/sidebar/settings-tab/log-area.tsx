@@ -35,7 +35,7 @@ export function LogArea({
         </button>
       </div>
       <code
-        className="relative flex h-52 max-h-52 flex-col gap-3 overflow-y-auto break-all rounded-btn rounded-r-none bg-base-200 p-4 text-xs"
+        className="relative flex h-80 max-h-80 flex-col gap-3 overflow-y-auto rounded-btn bg-base-200 p-4 text-[10px] font-mono leading-relaxed"
         ref={ref}
       >
         {logData.length === 0 && (

@@ -62,8 +62,8 @@
 
     .container {
       background-color: var(--panel);
-      width: 100%;
-      max-width: 650px;
+      width: 95%;
+      max-width: 1000px;
       border-radius: 24px;
       border: 1px solid var(--border);
       padding: 40px;
@@ -246,8 +246,10 @@
     }
 
     .key-list {
-      max-height: 300px;
+      max-height: 500px;
       overflow-y: auto;
+      scrollbar-width: thin;
+      scrollbar-color: var(--primary) transparent;
       border-radius: 12px;
       border: 1px solid var(--border);
       background-color: rgba(0, 0, 0, 0.2);
@@ -358,23 +360,39 @@
     </div>
 
     <!-- Expiry Selector (Shared) -->
-    <div class="form-group" style="margin-bottom: 25px;">
-      <label for="expiry-select">Thời hạn sử dụng mã bản quyền</label>
-      <select id="expiry-select"
-        style="background-color: rgba(255, 255, 255, 0.03); border: 1px solid var(--border); border-radius: 12px; color: var(--text); font-size: 16px; font-weight: 600; padding: 14px 20px; width: 100%; outline: none;">
-        <option value="PERM">Vĩnh Viễn (Lifetime)</option>
-        <option value="1Min">⏳ 1 Phút (Kiểm thử)</option>
-        <option value="5Min">⏳ 5 Phút (Kiểm thử)</option>
-        <option value="10Min">⏳ 10 Phút (Kiểm thử)</option>
-        <option value="1H">⏳ 1 Giờ (Dùng thử)</option>
-        <option value="3D">📅 3 Ngày</option>
-        <option value="1W">📅 1 Tuần</option>
-        <option value="1M">📅 1 Tháng</option>
-        <option value="3M">📅 3 Tháng</option>
-        <option value="6M">📅 6 Tháng</option>
-        <option value="1Y">📅 1 Năm</option>
-        <option value="3Y">📅 3 Năm</option>
-      </select>
+    <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 20px; margin-bottom: 25px;">
+      <div class="form-group" style="margin-bottom: 0;">
+        <label for="expiry-select">Thời hạn sử dụng</label>
+        <select id="expiry-select"
+          style="background-color: rgba(255, 255, 255, 0.03); border: 1px solid var(--border); border-radius: 12px; color: var(--text); font-size: 16px; font-weight: 600; padding: 14px 20px; width: 100%; outline: none;">
+          <option value="PERM">Vĩnh Viễn (Lifetime)</option>
+          <option value="1H">⏳ 1 Giờ (Dùng thử)</option>
+          <option value="3D">📅 3 Ngày</option>
+          <option value="1M">📅 1 Tháng</option>
+          <option value="3M">📅 3 Tháng</option>
+          <option value="6M">📅 6 Tháng</option>
+          <option value="1Y">📅 1 Năm</option>
+          <option value="1Min">⏳ 1 Phút (Test)</option>
+        </select>
+      </div>
+      <div class="form-group" style="margin-bottom: 0;">
+        <label for="price-input">Đơn giá (VNĐ)</label>
+        <input type="text" id="price-input" placeholder="Ví dụ: 270.000" value="270.000"
+          style="background-color: rgba(255, 255, 255, 0.03); border: 1px solid var(--border); border-radius: 12px; color: var(--accent); font-size: 16px; font-weight: 800; padding: 14px 20px; width: 100%; outline: none; text-align: right;">
+      </div>
+      <div class="form-group" style="margin-bottom: 0;">
+        <label for="phone-input">Số điện thoại</label>
+        <input type="text" id="phone-input" placeholder="Ví dụ: 0912345678"
+          style="background-color: rgba(255, 255, 255, 0.03); border: 1px solid var(--border); border-radius: 12px; color: var(--text); font-size: 16px; font-weight: 600; padding: 14px 20px; width: 100%; outline: none;">
+      </div>
+    </div>
+
+    <!-- Google Sheets Config (Optional/Hidden by default, click logo to show) -->
+    <div id="gsheet-config" style="display: none; margin-bottom: 25px; padding: 15px; background: rgba(16, 185, 129, 0.1); border: 1px solid var(--accent); border-radius: 12px;">
+      <label style="color: var(--accent);">URL Google Apps Script (Web App)</label>
+      <input type="text" id="gsheet-url" placeholder="https://script.google.com/macros/s/.../exec" value="https://script.google.com/macros/s/AKfycbxe_AFdbR5CC1tZ9BuGvtx1amGYo-Dz4UeYNNi_e6hPmhS8UCFse7Ufm77JHFgg4D5Egw/exec" 
+        style="width: 100%; padding: 10px; margin-top: 5px; background: #000; border: 1px solid var(--border); color: #fff; border-radius: 8px; font-size: 12px;">
+      <p style="font-size: 11px; color: var(--text-muted); margin-top: 5px;">Dữ liệu sẽ tự động đẩy lên Sheet khi tạo Key nếu điền URL này.</p>
     </div>
 
     <!-- HWID Mode Panel -->
@@ -437,11 +455,12 @@
           <thead>
             <tr
               style="border-bottom: 1px solid var(--border); color: var(--text-muted); font-weight: 600; background: rgba(0, 0, 0, 0.2);">
-              <th style="padding: 12px 10px;">Thời gian</th>
               <th style="padding: 12px 10px;">Loại Khóa</th>
               <th style="padding: 12px 10px;">Mã Máy (HWID)</th>
               <th style="padding: 12px 10px;">Thời Hạn</th>
               <th style="padding: 12px 10px;">Mã Kích Hoạt</th>
+              <th style="padding: 12px 10px;">Thời gian</th>
+              <th style="padding: 12px 10px;">SĐT</th>
               <th style="padding: 12px 10px; text-align: right;">Hành động</th>
             </tr>
           </thead>
@@ -626,6 +645,18 @@
     const btnGenerateRandom = document.getElementById("btn-generate-random");
     const keyCountInput = document.getElementById("key-count");
     const hwidInput = document.getElementById("hwid-input");
+    const priceInput = document.getElementById("price-input");
+
+    // Tự động thêm dấu chấm phân cách hàng ngàn cho ô Đơn giá
+    priceInput.addEventListener("input", function(e) {
+      let value = e.target.value.replace(/\D/g, "");
+      if (value) {
+        value = parseInt(value, 10).toLocaleString("vi-VN");
+        e.target.value = value.replace(/,/g, ".");
+      } else {
+        e.target.value = "";
+      }
+    });
 
     let generatedCodes = [];
 
@@ -742,18 +773,61 @@
     function addKeyToHistory(type, hwid, key) {
       const expirySelect = document.getElementById("expiry-select");
       const expiryLabel = expirySelect.options[expirySelect.selectedIndex].text;
+      const priceVal = document.getElementById("price-input").value;
+      const phoneVal = document.getElementById("phone-input").value;
 
-      keyHistory.unshift({
+      const newEntry = {
         timestamp: new Date().toLocaleString("vi-VN"),
         type: type, // 'HWID' or 'GENERAL'
         hwid: hwid,
+        phone: phoneVal,
         expiry: expiryLabel,
-        key: key
-      });
+        key: key,
+        price: priceVal
+      };
+
+      keyHistory.unshift(newEntry);
       saveHistory();
       historyPage = 1; // Reset to page 1
       renderHistory();
+
+      // Push to Google Sheets if URL is provided
+      pushToGoogleSheets(newEntry);
     }
+
+    async function pushToGoogleSheets(data) {
+      const url = document.getElementById("gsheet-url").value;
+      if (!url || !url.startsWith("http")) return;
+
+      try {
+        console.log("🚀 Pushing to Google Sheets...");
+        // Use no-cors mode if the script doesn't handle CORS, 
+        // but for Apps Script Web App, we usually use a form-like post
+        const formData = new FormData();
+        formData.append("seri", data.hwid);
+        formData.append("key", data.key);
+        formData.append("duration", data.expiry);
+        formData.append("price", data.price);
+        formData.append("phone", data.phone);
+        formData.append("timestamp", data.timestamp);
+
+        fetch(url, {
+          method: "POST",
+          mode: "no-cors", // Crucial for Google Apps Script
+          body: formData
+        });
+        
+        console.log("✅ Data sent to Google Sheets bridge.");
+      } catch (e) {
+        console.error("❌ Google Sheets Sync Failed:", e);
+      }
+    }
+
+    // Toggle Config on Logo Click
+    document.querySelector(".logo-container").addEventListener("click", () => {
+      const config = document.getElementById("gsheet-config");
+      config.style.display = config.style.display === "none" ? "block" : "none";
+    });
 
     function renderHistory() {
       const historyCard = document.getElementById("history-card");
@@ -771,13 +845,14 @@
       const filtered = keyHistory.filter(item => {
         return item.hwid.toLowerCase().includes(searchVal) ||
           item.key.toLowerCase().includes(searchVal) ||
+          (item.phone && item.phone.toLowerCase().includes(searchVal)) ||
           item.expiry.toLowerCase().includes(searchVal);
       });
 
       const totalItems = filtered.length;
 
       if (totalItems === 0) {
-        tbody.innerHTML = `<tr><td colspan="6" style="text-align: center; padding: 20px; color: var(--text-muted);">Không tìm thấy khóa nào khớp với tìm kiếm.</td></tr>`;
+        tbody.innerHTML = `<tr><td colspan="7" style="text-align: center; padding: 20px; color: var(--text-muted);">Không tìm thấy khóa nào khớp với tìm kiếm.</td></tr>`;
         document.getElementById("history-pagination").style.display = "none";
         return;
       }
@@ -829,11 +904,12 @@
         tr.onmouseleave = () => tr.style.backgroundColor = "transparent";
 
         tr.innerHTML = `
-          <td style="padding: 12px 10px; color: var(--text-muted); white-space: nowrap;">${item.timestamp}</td>
           <td style="padding: 12px 10px;">${typeBadge}</td>
           <td style="padding: 12px 10px; font-weight: 600; color: #4fa8ff; font-family: monospace; letter-spacing: 0.5px;">${item.hwid}</td>
           <td style="padding: 12px 10px; font-weight: 600; color: #e0e0e0;">${item.expiry}</td>
           <td style="padding: 12px 10px; font-family: monospace; font-weight: bold; color: #ffffff; letter-spacing: 0.5px; user-select: all;">${item.key}</td>
+          <td style="padding: 12px 10px; color: var(--text-muted); white-space: nowrap;">${item.timestamp}</td>
+          <td style="padding: 12px 10px; font-weight: 600; color: #facc15;">${item.phone || '-'}</td>
           <td style="padding: 12px 10px; text-align: right; display: flex; gap: 5px; justify-content: flex-end;">
             <button class="btn-copy-item" data-key="${item.key}" style="background: rgba(93, 95, 239, 0.15); border: 1px solid rgba(93, 95, 239, 0.3); color: var(--primary); padding: 5px 10px; border-radius: 6px; cursor: pointer; font-size: 12px; font-weight: 600; transition: all 0.2s;">Sao chép 📋</button>
             <button class="btn-revoke-item" data-key="${item.key}" data-hwid="${item.hwid}" style="background: rgba(231, 76, 60, 0.15); border: 1px solid rgba(231, 76, 60, 0.3); color: #e74c3c; padding: 5px 10px; border-radius: 6px; cursor: pointer; font-size: 12px; font-weight: 600; transition: all 0.2s;">Khóa 🚫</button>

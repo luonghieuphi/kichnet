@@ -130,8 +130,13 @@
       "MACHINE_ID_LABEL": "Your Machine ID (Send this to us to get your activation code):"
     },
     "BATCH_MODE": {
-      "TITLE": "Batch Pixel UP",
+      "TITLE": "Batch Processing",
+      "SINGLE": "Single Processing",
+      "LABEL": "Select Mode",
       "DESCRIPTION": "This will let you Pixel UP all files in a folder at once"
+    },
+    "PROCESSING_TYPE": {
+      "TITLE": "Processing Mode"
     },
     "FILE_SELECTION": {
       "TITLE": "Step 1",
@@ -139,7 +144,7 @@
       "SINGLE_MODE_TYPE": "Select Image"
     },
     "MODEL_SELECTION": {
-      "TITLE": "Neural Core Engine",
+      "TITLE": "Processing Core",
       "LABEL": "AI Model",
       "DESCRIPTION": "Select AI Model",
       "IMPORTED_CUSTOM_MODELS": "Imported Custom Models",

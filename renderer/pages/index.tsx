@@ -9,6 +9,7 @@ import {
   progressAtom,
   rememberOutputFolderAtom,
   userStatsAtom,
+  selectedTabAtom,
 } from "../atoms/user-settings-atom";
 import useLogger from "../components/hooks/use-logger";
 import { useToast } from "@/components/ui/use-toast";
@@ -208,6 +209,7 @@ const Home = () => {
   const [doubleUpscaylCounter, setDoubleUpscaylCounter] = useState(0);
   const setModelIds = useSetAtom(customModelIdsAtom);
   const setUserStats = useSetAtom(userStatsAtom);
+  const setSelectedTab = useSetAtom(selectedTabAtom);
 
   const selectImageHandler = async () => {
     resetImagePaths();
@@ -354,6 +356,16 @@ const Home = () => {
       toast({
         title: t("ERRORS.GENERIC_ERROR.TITLE"),
         description: data,
+        action: (
+          <ToastAction
+            altText="View Logs"
+            onClick={() => {
+              setSelectedTab(1);
+            }}
+          >
+            Xem Nhật ký 📋
+          </ToastAction>
+        ),
       });
       resetImagePaths();
     });

@@ -131,7 +131,12 @@
     },
     "BATCH_MODE": {
       "TITLE": "Xử lý hàng loạt",
+      "SINGLE": "Xử lý đơn",
+      "LABEL": "Lựa chọn chế độ",
       "DESCRIPTION": "Nâng cấp chất lượng toàn bộ hình ảnh trong một thư mục cùng một lúc."
+    },
+    "PROCESSING_TYPE": {
+      "TITLE": "Chế độ xử lý"
     },
     "FILE_SELECTION": {
       "TITLE": "Bước 1",
@@ -139,7 +144,7 @@
       "SINGLE_MODE_TYPE": "Chọn Hình ảnh"
     },
     "MODEL_SELECTION": {
-      "TITLE": "Lõi xử lý Neural",
+      "TITLE": "Lõi xử lý",
       "LABEL": "Mô hình AI",
       "DESCRIPTION": "Chọn Mô hình AI",
       "IMPORTED_CUSTOM_MODELS": "Mô hình Tùy chỉnh Nhập khẩu",

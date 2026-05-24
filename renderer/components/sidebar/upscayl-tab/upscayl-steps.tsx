@@ -117,55 +117,73 @@ function UpscaylSteps({
     <div
       className={`animate-step-in animate flex h-screen flex-col gap-7 overflow-y-auto overflow-x-hidden p-5 scrollbar-none`}
     >
-      {/* BATCH OPTION */}
-      <div className="flex flex-row items-center gap-2">
-        <input
-          type="checkbox"
-          className="toggle"
-          defaultChecked={batchMode}
+      {/* STEP 1: PROCESSING TYPE */}
+      <div className="animate-step-in group flex flex-col gap-4">
+        <div className="flex items-center gap-2.5 mb-1">
+          <div className="flex items-center justify-center rounded-[6px] border border-info/30 bg-info/10 px-1.5 py-0.5 text-[11px] font-bold text-info select-none">
+            01
+          </div>
+          <p
+            className="step-heading !mb-0 leading-none cursor-help"
+            data-tooltip-id="tooltip"
+            data-tooltip-content={t("APP.BATCH_MODE.DESCRIPTION")}
+          >
+            {t("APP.PROCESSING_TYPE.TITLE")}
+          </p>
+        </div>
+        <button
+          className="flex items-center justify-between w-full rounded-[14px] bg-base-200 border border-base-content/10 py-3.5 px-4 text-left transition-all hover:bg-base-300 active:scale-[0.98] cursor-pointer group select-none focus:outline-none"
           onClick={() => {
-            if (!rememberOutputFolder) {
-              setOutputPath("");
-            }
+            if (!rememberOutputFolder) setOutputPath("");
             setProgress("");
-            setBatchMode((oldValue) => !oldValue);
+            setBatchMode(!batchMode);
           }}
-        ></input>
-        <p
-          className="mr-1 inline-block cursor-help text-sm"
-          data-tooltip-id="tooltip"
-          data-tooltip-content={t("APP.BATCH_MODE.DESCRIPTION")}
         >
-          {t("APP.BATCH_MODE.TITLE")}
-        </p>
+          <div className="flex flex-col gap-0.5">
+            <span className="text-[10px] font-bold text-base-content/40 uppercase tracking-wider">
+              {t("APP.BATCH_MODE.LABEL" as any) || "LỰA CHỌN CHẾ ĐỘ"}
+            </span>
+            <span className="text-sm font-bold text-base-content leading-tight">
+              {batchMode ? t("APP.BATCH_MODE.TITLE") : t("APP.BATCH_MODE.SINGLE")}
+            </span>
+          </div>
+          <div className="h-7 w-7 rounded-full bg-base-300/50 flex items-center justify-center transition-transform group-hover:rotate-180">
+            <span className="text-xs">🔄</span>
+          </div>
+        </button>
       </div>
-
-
 
       {/* STEP 2 */}
       <div className="animate-step-in group flex flex-col gap-4">
         <div>
           <div className="flex items-center gap-2.5 mb-3.5">
             <div className="flex items-center justify-center rounded-[6px] border border-primary/30 bg-primary/10 px-1.5 py-0.5 text-[11px] font-bold text-primary select-none">
-              01
+              02
             </div>
             <p className="step-heading !mb-0 leading-none">{t("APP.MODEL_SELECTION.TITLE")}</p>
           </div>
 
           <SelectModelDialog />
         </div>
+      </div>
 
-
-
+      {/* STEP 3: RESOLUTION PARAMS */}
+      <div className="animate-step-in group flex flex-col gap-4">
+        <div className="flex items-center gap-2.5 mb-0.5">
+          <div className="flex items-center justify-center rounded-[6px] border border-info/30 bg-info/10 px-1.5 py-0.5 text-[11px] font-bold text-info select-none">
+            03
+          </div>
+          <p className="step-heading !mb-0 leading-none">{t("RESOLUTION_PARAMS" as any)}</p>
+        </div>
         <SelectImageScale scale={scale} setScale={setScale} hideInfo />
       </div>
 
-      {/* STEP 3 */}
+      {/* STEP 4 */}
       <div className="animate-step-in flex flex-col gap-2.5">
-        {/* STEP 3 HEADER */}
+        {/* STEP 4 HEADER */}
         <div className="flex items-center gap-2.5 mb-0.5">
           <div className="flex items-center justify-center rounded-[6px] border border-success/30 bg-success/10 px-1.5 py-0.5 text-[11px] font-bold text-success select-none">
-            03
+            04
           </div>
           <p className="step-heading !mb-0 leading-none">{t("APP.OUTPUT_PATH_SELECTION.TITLE")}</p>
         </div>

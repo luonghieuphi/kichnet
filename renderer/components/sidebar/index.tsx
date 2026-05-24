@@ -21,6 +21,7 @@ import {
   userStatsAtom,
   ttaModeAtom,
   copyMetadataAtom,
+  selectedTabAtom,
 } from "../../atoms/user-settings-atom";
 import useLogger from "../hooks/use-logger";
 import {
@@ -77,7 +78,7 @@ const Sidebar = ({
   const [gpuId, setGpuId] = useAtom(gpuIdAtom);
   const [saveImageAs, setSaveImageAs] = useAtom(saveImageAsAtom);
 
-  const [selectedTab, setSelectedTab] = useState(0);
+  const [selectedTab, setSelectedTab] = useAtom(selectedTabAtom);
   const [showCloudModal, setShowCloudModal] = useState(false);
 
   // ATOMIC STATES
@@ -198,7 +199,7 @@ const Sidebar = ({
   return (
     <>
       <div
-        className="relative flex h-screen min-w-[350px] max-w-[350px] flex-col bg-base-100 overflow-y-auto scrollbar-none"
+        className="relative flex h-screen min-w-[400px] max-w-[400px] flex-col bg-base-100 overflow-y-auto scrollbar-none"
       >
 
         {window.electron.platform === "mac" && (
